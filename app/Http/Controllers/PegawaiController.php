@@ -89,6 +89,10 @@ class PegawaiController extends Controller
         Pegawai::create([
             'nama' => $request->get('nama'),
             'password' => bcrypt($request->get('password')),
+            'alamat' => $request->get('alamat'),
+            'tglLahir' => $request->get('tglLahir'),
+            'noTelp' => $request->get('noTelp'),
+            'role' => $request->get('role')
         ]);
         $user = Pegawai::first();
         $token = JWTAuth::fromUser($user);

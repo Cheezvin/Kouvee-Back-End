@@ -8,7 +8,8 @@ class Layanan extends Model
 {
     protected $table = "layanan";
     protected $fillable = [ 'nama',
-                            'harga'];
+                            'harga',
+                            'gambar'];
     public $timestamps = false;                       
                             
 }

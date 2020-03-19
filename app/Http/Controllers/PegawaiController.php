@@ -119,6 +119,6 @@ class PegawaiController extends Controller
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
             $token = JWTAuth::attempt($credentials);
-            return $token; 
+            return auth()->user();
     }
 }

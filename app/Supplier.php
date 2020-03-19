@@ -9,7 +9,8 @@ class Supplier extends Model
     protected $table = "supplier";
     protected $fillable = [ 'nama',
                             'alamat',
-                            'noTelp',];
+                            'noTelp',
+                            'kota'];
     public $timestamps = false;                       
                             
 }

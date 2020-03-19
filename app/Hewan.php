@@ -10,6 +10,9 @@ class Hewan extends Model
     protected $fillable = [ 'nama',
                             'tglLahir',
                             'idJenisHewan',
-                            'idCustomer'];
+                            'idCustomer',
+                            'logAktor',
+                            'logAksi',
+                            'logWaktu'];
     public $timestamps = false;                                          
 }

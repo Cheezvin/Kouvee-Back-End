@@ -11,6 +11,9 @@ class Customer extends Model
                             'alamat',
                             'tglLahir',
                             'noTelp',
-                            'member'];
+                            'member',
+                            'logAktor',
+                            'logAksi',
+                            'logWaktu'];
     public $timestamps = false;                                          
 }

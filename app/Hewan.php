@@ -10,7 +10,7 @@ class Hewan extends Model
     protected $fillable = [ 'nama',
                             'tglLahir',
                             'jenisHewan',
-                            'cgiustomer',
+                            'customer',
                             'logAktor',
                             'logAksi',
                             'logWaktu'];

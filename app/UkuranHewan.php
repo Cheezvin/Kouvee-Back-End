@@ -12,5 +12,6 @@ class UkuranHewan extends Model
                             'logAksi',
                             'logWaktu'];
     public $timestamps = false;                       
-                            
+       
+    
 }

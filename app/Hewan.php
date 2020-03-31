@@ -9,8 +9,8 @@ class Hewan extends Model
     protected $table = "hewan";
     protected $fillable = [ 'nama',
                             'tglLahir',
-                            'idJenisHewan',
-                            'idCustomer',
+                            'jenisHewan',
+                            'cgiustomer',
                             'logAktor',
                             'logAksi',
                             'logWaktu'];

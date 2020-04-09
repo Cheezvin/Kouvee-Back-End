@@ -7,13 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 class TPP extends Model
 {
     protected $table = "transaksipenjualanproduk";
-    protected $fillable = [ 'idCustomer',
-                            'idProduk',
+    protected $fillable = [ 'id_transaksi',
+                            'nama_produk',
                             'jumlah',
-                            'totalHarga',
-                            'idPegawai',
+                            'harga',
+                            'subtotal',
                             'tanggal',
-                            'status'];
+                            'status',
+                            'logAktor',
+                            'logAksi',
+                            'logWaktu'];
     public $timestamps = false;                       
                             
 }

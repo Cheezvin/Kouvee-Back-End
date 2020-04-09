@@ -7,15 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class TPL extends Model
 {
     protected $table = "transaksipenjualanlayanan";
-    protected $fillable = [ 'idCustomer',
-                            'idLayanan',
+    protected $fillable = [ 'id_transaksi',
+                            'nama_layanan',
                             'jumlah',
-                            'totalHarga',
-                            'idPegawai',
+                            'harga',
+                            'subtotal',
                             'tanggal',
                             'status',
-                            'idHewan',
-                            'idUkuranHewan'];
+                            'nama_hewan',
+                            'ukuranHewan',
+                            'logAktor',
+                            'logAksi',
+                            'logWaktu'];
     public $timestamps = false;                       
                             
 }

@@ -12,7 +12,6 @@ class TPP extends Model
                             'jumlah',
                             'harga',
                             'subtotal',
-                            'tanggal',
                             'status',
                             'logAktor',
                             'logAksi',

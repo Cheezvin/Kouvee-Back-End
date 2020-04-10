@@ -12,8 +12,6 @@ class TPL extends Model
                             'jumlah',
                             'harga',
                             'subtotal',
-                            'tanggal',
-                            'status',
                             'nama_hewan',
                             'ukuranHewan',
                             'logAktor',

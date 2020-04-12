@@ -37,7 +37,7 @@ class TPPController extends Controller
      */
     public function search($id_transaksi)
     {
-         return TPP::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
+         return TPP::where('id_transaksi', '=', $id_transaksi)->get();
     }
 
     /**

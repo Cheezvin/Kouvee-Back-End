@@ -37,7 +37,7 @@ class TPLController extends Controller
      */
     public function search($id_transaksi)
     {
-         return TPL::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
+         return TPL::where('id_transaksi', '=', $id_transaksi)->get();
     }
 
     /**

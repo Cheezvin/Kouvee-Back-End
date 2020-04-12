@@ -32,12 +32,12 @@ class TPPController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id_transaksi
      * @return \Illuminate\Http\Response
      */
-    public function search($id)
+    public function search($id_transaksi)
     {
-        return TPP::find($id);
+         return TPP::where('id', '=', $id_transaksi)->firstOrFail();
     }
 
     /**

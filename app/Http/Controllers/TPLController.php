@@ -29,15 +29,15 @@ class TPLController extends Controller
         return TPL::create($request->all());    
     }
 
-    /**
+     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id_transaksi
      * @return \Illuminate\Http\Response
      */
-    public function search($id)
+    public function search($id_transaksi)
     {
-        return TPL::find($id);
+         return TPL::where('id', '=', $id_transaksi)->firstOrFail();
     }
 
     /**

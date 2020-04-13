@@ -8,6 +8,7 @@ class TPP extends Model
 {
     protected $table = "transaksipenjualanproduk";
     protected $fillable = [ 'id_transaksi',
+                            'id_produk',
                             'nama_produk',
                             'jumlah',
                             'harga',

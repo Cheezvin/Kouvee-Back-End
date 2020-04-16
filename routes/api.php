@@ -85,6 +85,7 @@ Route::get('/showTPP', 'TPPController@index');
 Route::post('/createTPP', 'TPPController@create');
 Route::put('/updateTPP/{id}', 'TPPController@update');
 Route::get('/searchTPP/{id}', 'TPPController@search');
+Route::get('/searchIDTPP/{id}', 'TPPController@searchbyid');
 Route::delete('/deleteTPP/{id}', 'TPPController@delete');
 
 //TPL

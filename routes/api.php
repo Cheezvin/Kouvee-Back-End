@@ -49,6 +49,8 @@ Route::post('/createHewan', 'HewanController@create');
 Route::put('/updateHewan/{id}', 'HewanController@update');
 Route::get('/searchHewan/{id}', 'HewanController@search');
 Route::delete('/deleteHewan/{id}', 'HewanController@delete');
+Route::get('/deletedHewan', 'HewanController@deletedItem');
+Route::get('/notDeletedHewan', 'HewanController@notDeletedItem');
 
 //JenisHewan
 Route::get('/showJenisHewan', 'JenisHewanController@index');
@@ -56,6 +58,8 @@ Route::post('/createJenisHewan', 'JenisHewanController@create');
 Route::put('/updateJenisHewan/{id}', 'JenisHewanController@update');
 Route::get('/searchJenisHewan/{id}', 'JenisHewanController@search');
 Route::delete('/deleteJenisHewan/{id}', 'JenisHewanController@delete');
+Route::get('/deletedJenisHewan', 'JenisHewanController@deletedItem');
+Route::get('/notDeletedJenisHewan', 'JenisHewanController@notDeletedItem');
 
 //Pegawai
 Route::get('/showPegawai', 'PegawaiController@index');
@@ -101,6 +105,8 @@ Route::post('/createUkuranHewan', 'UkuranHewanController@create');
 Route::put('/updateUkuranHewan/{id}', 'UkuranHewanController@update');
 Route::get('/searchUkuranHewan/{id}', 'UkuranHewanController@search');
 Route::delete('/deleteUkuranHewan/{id}', 'UkuranHewanController@delete');
+Route::get('/deletedUkuranHewan', 'UkuranHewanController@deletedItem');
+Route::get('/notDeletedUkuranHewan', 'UkuranHewanController@notDeletedItem');
 
 Route::middleware('jwt.auth')->get('users', function(Request $request) {
     return auth()->user();

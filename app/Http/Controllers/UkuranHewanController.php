@@ -67,4 +67,12 @@ class UkuranHewanController extends Controller
         $UH->delete();
         return "The data was deleted";
     }
+
+    public function deletedItem() {
+        return $hewan = UkuranHewan::where('logAksi', '==', "Deleted")->get();
+    }
+
+    public function notDeletedItem() {
+        return $hewan = UkuranHewan::where('logAksi', '!=', "Deleted")->get();
+    }
 }

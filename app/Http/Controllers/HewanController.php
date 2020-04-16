@@ -67,4 +67,14 @@ class HewanController extends Controller
         $hewan->delete();
         return "The data was deleted";
     }
+
+    public function deletedItem() {
+        return $hewan = Hewan::where('logAksi', '==', "Deleted")->get();
+    }
+
+    public function notDeletedItem() {
+        return $hewan = Hewan::where('logAksi', '!=', "Deleted")->get();
+    }
+
+    
 }

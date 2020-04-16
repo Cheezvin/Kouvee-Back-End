@@ -15,7 +15,7 @@ class TPL extends Model
                             'nama_hewan',
                             'jenisHewan',
                             'ukuranHewan',
-                            'status',
+                            'nama_customer',
                             'logAktor',
                             'logAksi',
                             'logWaktu'];

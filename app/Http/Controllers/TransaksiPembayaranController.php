@@ -37,7 +37,7 @@ class TransaksiPembayaranController extends Controller
      */
     public function search($id_transaksi)
     {
-        $pembayaran = TransaksiPembayaran::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
+        return $pembayaran = TransaksiPembayaran::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
     }
 
     /**

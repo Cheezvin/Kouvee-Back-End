@@ -43,13 +43,13 @@ class TransaksiPembayaranController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id_transaksi
      * @param  \Illuminate\Http\Request
      * @return \Illuminate\Http\Response
      */
-    public function update($id, Request $request)
+    public function update($id_transaksi, Request $request)
     {
-        $pembayaran = TransaksiPembayaran::where('id_transaksi', '=', $id)->get();
+        $pembayaran = TransaksiPembayaran::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
         $pembayaran->update($request->all());
         return $pembayaran;
     }

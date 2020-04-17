@@ -32,12 +32,12 @@ class TransaksiPembayaranController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $id_transaksi
      * @return \Illuminate\Http\Response
      */
-    public function search($id)
+    public function search($id_transaksi)
     {
-        return TransaksiPembayaran::find($id);
+        $pembayaran = TransaksiPembayaran::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
     }
 
     /**

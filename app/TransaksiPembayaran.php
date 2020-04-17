@@ -11,6 +11,7 @@ class TransaksiPembayaran extends Model
                             'tanggal',
                             'total_harga',
                             'nama_customer',
+                            'telp_customer',
                             'status',
                             'logAktor',
                             'logAksi',

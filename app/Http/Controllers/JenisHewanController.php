@@ -69,7 +69,7 @@ class JenisHewanController extends Controller
     }
 
     public function deletedItem() {
-        return $hewan = JenisHewan::where('logAksi', '==', "Deleted")->get();
+        return $hewan = JenisHewan::where('logAksi', '=', "Deleted")->get();
     }
 
     public function notDeletedItem() {

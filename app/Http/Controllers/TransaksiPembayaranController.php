@@ -49,11 +49,10 @@ class TransaksiPembayaranController extends Controller
      */
     public function update($id, Request $request)
     {
-        $pembayaran = TransaksiPembayaran::find($id);
+        $pembayaran = TransaksiPembayaran::where('id_transaksi', '=', $id)->get();
         $pembayaran->update($request->all());
         return $pembayaran;
     }
-
 
     /**
      * Remove the specified resource from storage.

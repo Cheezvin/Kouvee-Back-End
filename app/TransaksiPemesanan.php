@@ -9,9 +9,12 @@ class TransaksiPemesanan extends Model
     protected $table = "transaksipemesanan";
     protected $fillable = [ 'idSupp',
                             'idProduk',
+                            'namaSupp',
+                            'namaProduk',
                             'jumlah',
                             'satuan',
-                            'status'];
+                            'status',
+                            'tanggal'];
     public $timestamps = false;                       
                             
 }

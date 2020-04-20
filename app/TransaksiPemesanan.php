@@ -8,6 +8,7 @@ class TransaksiPemesanan extends Model
 {
     protected $table = "transaksipemesanan";
     protected $fillable = [ 'idSupp',
+                            'id_transaksi',
                             'idProduk',
                             'namaSupp',
                             'namaProduk',

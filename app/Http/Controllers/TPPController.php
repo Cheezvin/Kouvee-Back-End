@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use PDF;
 use App\TPP;
+use PDF;
 
 class TPPController extends Controller
 {
@@ -80,6 +80,11 @@ class TPPController extends Controller
         return "The data was deleted";
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     */
     public function downloadPDF($id){
         $user = TPP::find($id);
         $pdf = PDF::loadView('pdf', compact('user'));

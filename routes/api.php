@@ -91,6 +91,7 @@ Route::put('/updateTPP/{id}', 'TPPController@update');
 Route::get('/searchTPP/{id}', 'TPPController@search');
 Route::get('/searchIDTPP/{id}', 'TPPController@searchbyid');
 Route::delete('/deleteTPP/{id}', 'TPPController@delete');
+Route::get('/downloadPDF/{id}','TPPController@downloadPDF');
 
 //TPL
 Route::get('/showTPL', 'TPLController@index');

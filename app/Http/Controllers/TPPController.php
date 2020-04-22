@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use PDF;
 use App\TPP;
 
 class TPPController extends Controller
@@ -77,5 +78,11 @@ class TPPController extends Controller
         $tpp = TPP::find($id);
         $tpp->delete();
         return "The data was deleted";
+    }
+
+    public function downloadPDF($id){
+        $user = TPP::find($id);
+        $pdf = PDF::loadView('pdf', compact('user'));
+        return $pdf->download('invoice.pdf');
     }
 }

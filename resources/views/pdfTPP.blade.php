@@ -12,17 +12,14 @@
 }
 img{
   width: 100%;
-  height: 30%;
 }
 .solid {
   border-style: solid;
-  width: 50%;
-  height: 100%;
-  margin-left: 20%;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 5%;
-  padding-right: 5%;
+  width: 100%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 .container {
   width: 100%;
@@ -35,8 +32,8 @@ img{
       <div class="solid">
         <img src="./gambar.png">
         <h2 align="center">Nota Lunas</h2>
-        <p align="right">Tanggal</p>
-        <p align="left">ID Transaksi</p>
+        <p align="right">{{$pembayaran->tanggal}}l</p>
+        <p align="left">{{$pembayaran->id_transaksi}}</p>
         
         <table style="width:100%;">
           <tr>

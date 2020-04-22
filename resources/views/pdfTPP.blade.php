@@ -30,7 +30,7 @@ img{
   <body>
     <div class="container">
       <div class="solid">
-        <img src="./gambar.png">
+        <img src="https://firebasestorage.googleapis.com/v0/b/kouvee-17f92.appspot.com/o/produk%2Fgambar.png?alt=media&token=3b7099fb-0fdf-4035-82e6-5d502d0fff30">
         <h2 align="center">Nota Lunas</h2>
         <p align="right">{{$pembayaran->tanggal}}l</p>
         <p align="left">{{$pembayaran->id_transaksi}}</p>

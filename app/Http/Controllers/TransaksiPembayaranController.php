@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\TransaksiPembayaran;
+use App\TPP;
+use App\TPL;
 
 class TransaksiPembayaranController extends Controller
 {
@@ -65,5 +67,31 @@ class TransaksiPembayaranController extends Controller
         $pembayaran = TransaksiPembayaran::find($id);
         $pembayaran->delete();
         return "The data was deleted";
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id_transaksi
+     */
+    public function downloadPDFTPP($id_transaksi){
+        $data = TPP::where('id_transaksi', '=', $id_transaksi)->get();
+        $no = 1;
+        $pembayaran = TransaksiPembayaran::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
+        $pdf = PDF::loadView('pdfTPP', compact('data','no','pembayaran'));
+        return $pdf->download('invoice.pdf');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     */
+    public function downloadPDFTPL($id){
+        $data = TPL::find($id);
+        $no = 1;
+        $pembayaran = TransaksiPembayaran::find($id);
+        $pdf = PDF::loadView('pdfTPL', compact('user','no','pembayaran'));
+        return $pdf->download('invoice.pdf');
     }
 }

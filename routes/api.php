@@ -76,6 +76,8 @@ Route::post('/createTransaksiPembayaran', 'TransaksiPembayaranController@create'
 Route::put('/updateTransaksiPembayaran/{id}', 'TransaksiPembayaranController@update');
 Route::get('/searchTransaksiPembayaran/{id}', 'TransaksiPembayaranController@search');
 Route::delete('/deleteTransaksiPembayaran/{id}', 'TransaksiPembayaranController@delete');
+Route::get('/downloadPDFTPP/{id}','TPPController@downloadPDFTPP');
+Route::get('/downloadPDFTPL/{id}','TPPController@downloadPDFTPL');
 
 //TransaksiPemesanan
 Route::get('/showTransaksiPemesanan', 'TransaksiPemesananController@index');
@@ -91,7 +93,7 @@ Route::put('/updateTPP/{id}', 'TPPController@update');
 Route::get('/searchTPP/{id}', 'TPPController@search');
 Route::get('/searchIDTPP/{id}', 'TPPController@searchbyid');
 Route::delete('/deleteTPP/{id}', 'TPPController@delete');
-Route::get('/downloadPDF/{id}','TPPController@downloadPDF');
+
 
 //TPL
 Route::get('/showTPL', 'TPLController@index');

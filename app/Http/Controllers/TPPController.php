@@ -80,14 +80,5 @@ class TPPController extends Controller
         return "The data was deleted";
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     */
-    public function downloadPDF($id){
-        $user = TPP::find($id);
-        $pdf = PDF::loadView('pdf', compact('user'));
-        return $pdf->download('invoice.pdf');
-    }
+    
 }

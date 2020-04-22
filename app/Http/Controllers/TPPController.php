@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\TPP;
-use PDF;
+use \PDF;
 
 class TPPController extends Controller
 {

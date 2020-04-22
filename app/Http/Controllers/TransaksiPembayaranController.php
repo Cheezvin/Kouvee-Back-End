@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use App\TransaksiPembayaran;
 use App\TPP;
 use App\TPL;
+use \PDF;
 
 class TransaksiPembayaranController extends Controller
 {

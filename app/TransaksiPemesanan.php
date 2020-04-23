@@ -15,7 +15,10 @@ class TransaksiPemesanan extends Model
                             'jumlah',
                             'satuan',
                             'status',
-                            'tanggal'];
+                            'tanggal',
+                            'logAktor',
+                            'logAksi',
+                            'logWaktu'];
     public $timestamps = false;                       
                             
 }

@@ -7,8 +7,6 @@
   border-collapse: collapse;
   text-align: center;
   vertical-align: middle;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 img{
   width: 100%;
@@ -32,7 +30,7 @@ img{
       <div class="solid">
         <img src="https://firebasestorage.googleapis.com/v0/b/kouvee-17f92.appspot.com/o/produk%2Fgambar.png?alt=media&token=3b7099fb-0fdf-4035-82e6-5d502d0fff30">
         <h2 align="center">Nota Lunas</h2>
-        <p align="right">{{$pembayaran->tanggal}}l</p>
+        <p align="right">{{$pembayaran->tanggal}}</p>
         <p align="left">{{$pembayaran->id_transaksi}}</p>
         
         <table style="width:100%;">

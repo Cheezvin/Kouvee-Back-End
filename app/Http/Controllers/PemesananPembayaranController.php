@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\TransaksiPemesanan;
+use App\PemesananPembayaran;
 
-class TransaksiPemesananController extends Controller
+class PemesananPembayaranController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class TransaksiPemesananController extends Controller
      */
     public function index()
     {
-        return TransaksiPemesanan::all();
+        return PemesananPembayaran::all();
     }
 
     /**
@@ -26,7 +26,7 @@ class TransaksiPemesananController extends Controller
      */
     public function create(Request $request)
     {
-        return TransaksiPemesanan::create($request->all());    
+        return PemesananPembayaran::create($request->all());    
     }
 
     /**
@@ -37,7 +37,7 @@ class TransaksiPemesananController extends Controller
      */
     public function search($id_transaksi)
     {
-        return TransaksiPemesanan::where('id_transaksi', '=', $id_transaksi)->get();
+        return PemesananPembayaran::where('id_transaksi', '=', $id_transaksi)->get();
     }
 
     /**
@@ -49,7 +49,7 @@ class TransaksiPemesananController extends Controller
      */
     public function update($id, Request $request)
     {
-        $pemesanan = TransaksiPemesanan::find($id);
+        $pemesanan = PemesananPembayaran::find($id);
         $pemesanan->update($request->all());
         return $pemesanan;
     }
@@ -63,7 +63,7 @@ class TransaksiPemesananController extends Controller
      */
     public function delete($id)
     {
-        $pemesanan = TransaksiPemesanan::find($id);
+        $pemesanan = PemesananPembayaran::find($id);
         $pemesanan->delete();
         return "The data was deleted";
     }

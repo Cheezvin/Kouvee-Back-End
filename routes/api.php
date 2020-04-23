@@ -111,6 +111,13 @@ Route::delete('/deleteUkuranHewan/{id}', 'UkuranHewanController@delete');
 Route::get('/deletedUkuranHewan', 'UkuranHewanController@deletedItem');
 Route::get('/notDeletedUkuranHewan', 'UkuranHewanController@notDeletedItem');
 
+//PemesananPembayaran
+Route::get('/showPemesananPembayaran', 'PemesananPembayaranController@index');
+Route::post('/createPemesananPembayaran', 'PemesananPembayaranController@create');
+Route::put('/updatePemesananPembayaran/{id}', 'PemesananPembayaranController@update');
+Route::get('/searchPemesananPembayaran/{id}', 'PemesananPembayaranController@search');
+Route::delete('/deletePemesananPembayaran/{id}', 'PemesananPembayaranController@delete');
+
 Route::middleware('jwt.auth')->get('users', function(Request $request) {
     return auth()->user();
 });

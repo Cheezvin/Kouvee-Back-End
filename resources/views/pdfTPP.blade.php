@@ -15,13 +15,11 @@ img{
   border-style: solid;
   width: 100%;
   padding-top: 5%;
-  padding-bottom: 5%;
   padding-left: 10%;
   padding-right: 10%;
 }
 .container {
   width: 100%;
-  height: 100%;
 }
 </style>
 </head>

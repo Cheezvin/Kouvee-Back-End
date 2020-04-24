@@ -68,7 +68,7 @@ img{
         </table>
         <p align="right">Subtotal : {{$pembayaran->total_harga = $pembayaran->total_harga+$pembayaran->diskon }}</p>
         <p align="right">Diskon : {{$pembayaran->diskon}}</p>
-        <h3 align="right">Total : $pembayaran->total_harga}}</h3>
+        <h4 align="right">Total : {{$pembayaran->total_harga}}</h4>
       </div>
     </div>
   </body>

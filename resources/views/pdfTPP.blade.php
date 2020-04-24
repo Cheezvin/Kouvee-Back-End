@@ -64,9 +64,11 @@ img{
           </tr>
           @endforeach
         </table>
-        <p align="right">Subtotal : {{$pembayaran->total_harga = $pembayaran->total_harga+$pembayaran->diskon }}</p>
-        <p align="right">Diskon : {{$pembayaran->diskon}}</p>
-        <h4 align="right">Total : {{$pembayaran->total_harga = $pembayaran->total_harga-$pembayaran->diskon}}</h4>
+        <div style="border-top: 1px">
+          <p align="right">Subtotal : {{$pembayaran->total_harga = $pembayaran->total_harga+$pembayaran->diskon }}</p>
+          <p align="right">Diskon : {{$pembayaran->diskon}}</p>
+          <h3 align="right">Total : {{$pembayaran->total_harga = $pembayaran->total_harga-$pembayaran->diskon}}</h3>
+        </div>
       </div>
     </div>
   </body>

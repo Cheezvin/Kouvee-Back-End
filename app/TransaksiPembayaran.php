@@ -10,6 +10,7 @@ class TransaksiPembayaran extends Model
     protected $fillable = [ 'id_transaksi',
                             'tanggal',
                             'total_harga',
+                            'diskon',
                             'nama_customer',
                             'telp_customer',
                             'status',

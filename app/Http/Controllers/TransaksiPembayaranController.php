@@ -81,7 +81,7 @@ class TransaksiPembayaranController extends Controller
      */
     public function downloadPDFTPP($id_transaksi){
         $data = TPP::where('id_transaksi', '=', $id_transaksi)->get();
-        $no = 1;
+        $no = 0;
         $pembayaran = TransaksiPembayaran::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
         $pdf = PDF::loadView('pdfTPP', compact('data','no','pembayaran'));
         return $pdf->download('invoice.pdf');
@@ -94,7 +94,7 @@ class TransaksiPembayaranController extends Controller
      */
     public function downloadPDFTPL($id){
         $data = TPL::find($id);
-        $no = 1;
+        $no = 0;
         $pembayaran = TransaksiPembayaran::find($id);
         $pdf = PDF::loadView('pdfTPL', compact('user','no','pembayaran'));
         return $pdf->download('invoice.pdf');

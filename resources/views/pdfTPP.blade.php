@@ -35,14 +35,14 @@ img{
         
         <table style="width:100%;">
           <tr>
-            <td align="left">Firstname</td>
+            <td align="left">Customer : {{$pembayaran->nama_customer}}</td>
             <td></td>
-            <td align="right">Age</td>
+            <td align="right">CS : {{$dt->logAktor}}</td>
           </tr>
           <tr>
-            <td align="left">Firstname</td>
+            <td align="left">Telepon : {{$pembayaran->telp_customer}}</td>
             <td></td>
-            <td align="right">Age</td>
+            <td align="right">Kasir : {{$pembayaran->logAktor}}</td>
           </tr>
         </table>
         <div style="border-top: 1px solid black; border-bottom: 1px solid black; margin-top: 5%;">
@@ -58,7 +58,7 @@ img{
           </tr>
           @foreach($data as $dt)
           <tr>
-            <td>{{$dt->id}}</td>
+            <td>{{$no = $no +1}}</td>
             <td>{{$dt->nama_produk}}</td>
             <td>{{$dt->harga}}</td>
             <td>{{$dt->jumlah}}</td>

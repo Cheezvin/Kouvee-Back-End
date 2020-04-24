@@ -11,6 +11,7 @@ class Produk extends Model
                             'harga',
                             'stok',
                             'gambar',
+                            'stok_min',
                             'logAktor',
                             'logAksi',
                             'logWaktu'];

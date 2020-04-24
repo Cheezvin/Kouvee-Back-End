@@ -20,6 +20,7 @@ Route::post('/createProduk', 'ProdukController@create');
 Route::put('/updateProduk/{id}', 'ProdukController@update');
 Route::get('/searchProduk/{id}', 'ProdukController@search');
 Route::delete('/deleteProduk/{id}', 'ProdukController@delete');
+Route::get('/deletedProduk', 'ProdukController@deletedItem');
 
 
 //Layanan
@@ -28,6 +29,7 @@ Route::post('/createLayanan', 'LayananController@create');
 Route::put('/updateLayanan/{id}', 'LayananController@update');
 Route::get('/searchLayanan/{id}', 'LayananController@search');
 Route::delete('/deleteLayanan/{id}', 'LayananController@delete');
+Route::get('/deletedLayanan', 'LayananController@deletedItem');
 
 //Supplier
 Route::get('/showSupplier', 'SupplierController@index');
@@ -35,6 +37,7 @@ Route::post('/createSupplier', 'SupplierController@create');
 Route::put('/updateSupplier/{id}', 'SupplierController@update');
 Route::get('/searchSupplier/{id}', 'SupplierController@search');
 Route::delete('/deleteSupplier/{id}', 'SupplierController@delete');
+Route::get('/deletedSupplier', 'SupplierController@deletedItem');
 
 //Customer
 Route::get('/showCustomer', 'CustomerController@index');
@@ -69,6 +72,7 @@ Route::get('/searchPegawai/{id}', 'PegawaiController@search');
 Route::delete('/deletePegawai/{id}', 'PegawaiController@delete');
 Route::post('/register', 'PegawaiController@register');
 Route::post('/login', 'PegawaiController@login');
+Route::get('/deletedPegawai', 'PegawaiController@deletedItem');
 
 //TransaksiPembayaran
 Route::get('/showTransaksiPembayaran', 'TransaksiPembayaranController@index');

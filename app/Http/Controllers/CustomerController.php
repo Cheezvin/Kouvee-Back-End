@@ -15,8 +15,13 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return Customer::all();
+        return Customer::where('logAksi', '!=', "Deleted")->get();
     }
+
+    public function deletedItem() {
+        return Customer::where('logAksi', '=', "Deleted")->get();
+    }
+
 
     /**
      * Store a newly created resource in storage.

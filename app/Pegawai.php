@@ -15,7 +15,10 @@ class Pegawai extends Authenticatable implements JWTSubject
                             'tglLahir',
                             'noTelp',
                             'password',
-                            'role'];
+                            'role',
+                            'logAktor',
+                            'logAksi',
+                            'logWaktu'];
     public $timestamps = false;          
     
     /**

@@ -15,7 +15,7 @@ class HewanController extends Controller
      */
     public function index()
     {
-        return Hewan::all();
+        return $hewan = Hewan::where('logAksi', '!=', "Deleted")->get();
     }
 
     /**

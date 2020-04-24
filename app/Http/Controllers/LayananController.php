@@ -15,8 +15,13 @@ class LayananController extends Controller
      */
     public function index()
     {
-        return Layanan::all();
+        return Layanan::where('logAksi', '!=', "Deleted")->get();
     }
+
+    public function deletedItem() {
+        return Layanan::where('logAksi', '=', "Deleted")->get();
+    }
+
 
     /**
      * Store a newly created resource in storage.

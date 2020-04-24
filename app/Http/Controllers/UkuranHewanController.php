@@ -15,8 +15,9 @@ class UkuranHewanController extends Controller
      */
     public function index()
     {
-        return UkuranHewan::all();
+        return UkuranHewan::where('logAksi', '!=', "Deleted")->get();
     }
+
 
     /**
      * Store a newly created resource in storage.

@@ -9,7 +9,10 @@ class Layanan extends Model
     protected $table = "layanan";
     protected $fillable = [ 'nama',
                             'harga',
-                            'gambar'];
+                            'gambar',
+                            'logAktor',
+                            'logAksi',
+                            'logWaktu'];
     public $timestamps = false;                       
                             
 }

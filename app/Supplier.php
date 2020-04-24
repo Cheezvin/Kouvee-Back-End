@@ -10,7 +10,10 @@ class Supplier extends Model
     protected $fillable = [ 'nama',
                             'alamat',
                             'noTelp',
-                            'kota'];
+                            'kota',
+                            'logAktor',
+                            'logAksi',
+                            'logWaktu'];
     public $timestamps = false;                       
                             
 }

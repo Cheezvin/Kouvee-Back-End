@@ -20,8 +20,13 @@ class PegawaiController extends Controller
      */
     public function index()
     {
-        return Pegawai::all();
+        return Pegawai::where('logAksi', '!=', "Deleted")->get();
     }
+
+    public function deletedItem() {
+        return Pegawai::where('logAksi', '=', "Deleted")->get();
+    }
+
 
     /**
      * Store a newly created resource in storage.

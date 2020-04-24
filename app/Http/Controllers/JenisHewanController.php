@@ -15,8 +15,9 @@ class JenisHewanController extends Controller
      */
     public function index()
     {
-        return JenisHewan::all();
+        return JenisHewan::where('logAksi', '!=', "Deleted")->get();
     }
+
 
     /**
      * Store a newly created resource in storage.

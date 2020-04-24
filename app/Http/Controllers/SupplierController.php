@@ -15,8 +15,13 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        return Supplier::all();
+        return Supplier::where('logAksi', '!=', "Deleted")->get();
     }
+
+    public function deletedItem() {
+        return Supplier::where('logAksi', '=', "Deleted")->get();
+    }
+
 
     /**
      * Store a newly created resource in storage.

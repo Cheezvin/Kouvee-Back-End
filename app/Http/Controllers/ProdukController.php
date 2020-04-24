@@ -15,7 +15,11 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        return Produk::all();
+        return Produk::where('logAksi', '!=', "Deleted")->get();
+    }
+
+    public function deletedItem() {
+        return Produk::where('logAksi', '=', "Deleted")->get();
     }
 
     /**

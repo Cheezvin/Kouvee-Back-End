@@ -46,9 +46,9 @@ img{
           </tr>
         </table>
         <div style="border-top: 1px solid black; border-bottom: 1px solid black; margin-top: 2%;">
-          <h2 align="center">Produk</h2>
+          <h3 align="center">Produk</h3>
         </div>
-        <table class="tabel"  style="width:100%; margin-top: 5%;">
+        <table class="tabel"  style="width:100%; margin-top: 2%;">
           <tr>
             <th>No</th>
             <th>Nama Produk</th> 

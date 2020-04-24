@@ -12,7 +12,10 @@ class PemesananPembayaran extends Model
                             'telp_supp',
                             'kota_supp',
                             'status',
-                            'tanggal',];
+                            'tanggal',
+                            'logAktor',
+                            'logAksi',
+                            'logWaktu'];
     public $timestamps = false;                       
                             
 }

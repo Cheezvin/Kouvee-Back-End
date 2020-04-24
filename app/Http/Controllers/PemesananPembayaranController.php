@@ -15,7 +15,11 @@ class PemesananPembayaranController extends Controller
      */
     public function index()
     {
-        return PemesananPembayaran::all();
+        return PemesananPembayaran::where('logAksi', '!=', "Dihapus")->get();
+    }
+
+    public function deletedItem() {
+        return PemesananPembayaran::where('logAksi', '=', "Dihapus")->get();
     }
 
     /**

@@ -15,7 +15,11 @@ class TPLController extends Controller
      */
     public function index()
     {
-        return TPL::all();
+        return TPL::where('logAksi', '!=', "Dihapus")->get();
+    }
+
+    public function deletedItem() {
+        return TPL::where('logAksi', '=', "Dihapus")->get();
     }
 
     /**

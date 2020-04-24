@@ -45,6 +45,7 @@ Route::post('/createCustomer', 'CustomerController@create');
 Route::put('/updateCustomer/{id}', 'CustomerController@update');
 Route::get('/searchCustomer/{id}', 'CustomerController@search');
 Route::delete('/deleteCustomer/{id}', 'CustomerController@delete');
+Route::get('/deletedCustomer', 'CustomerController@deletedItem');
 
 //Hewan
 Route::get('/showHewan', 'HewanController@index');
@@ -82,6 +83,7 @@ Route::get('/searchTransaksiPembayaran/{id}', 'TransaksiPembayaranController@sea
 Route::delete('/deleteTransaksiPembayaran/{id}', 'TransaksiPembayaranController@delete');
 Route::get('/downloadPDFTPP/{id}','TransaksiPembayaranController@downloadPDFTPP');
 Route::get('/downloadPDFTPL/{id}','TransaksiPembayaranController@downloadPDFTPL');
+Route::get('/deletedTransaksiPembayaran', 'TransaksiPembayaranController@deletedItem');
 
 //TransaksiPemesanan
 Route::get('/showTransaksiPemesanan', 'TransaksiPemesananController@index');
@@ -89,6 +91,7 @@ Route::post('/createTransaksiPemesanan', 'TransaksiPemesananController@create');
 Route::put('/updateTransaksiPemesanan/{id}', 'TransaksiPemesananController@update');
 Route::get('/searchTransaksiPemesanan/{id}', 'TransaksiPemesananController@search');
 Route::delete('/deleteTransaksiPemesanan/{id}', 'TransaksiPemesananController@delete');
+Route::get('/deletedTransaksiPemesanan', 'TransaksiPemesananController@deletedItem');
 
 //TPP
 Route::get('/showTPP', 'TPPController@index');
@@ -97,6 +100,7 @@ Route::put('/updateTPP/{id}', 'TPPController@update');
 Route::get('/searchTPP/{id}', 'TPPController@search');
 Route::get('/searchIDTPP/{id}', 'TPPController@searchbyid');
 Route::delete('/deleteTPP/{id}', 'TPPController@delete');
+Route::get('/deletedTPP', 'TPPController@deletedItem');
 
 
 //TPL
@@ -105,6 +109,7 @@ Route::post('/createTPL', 'TPLController@create');
 Route::put('/updateTPL/{id}', 'TPLController@update');
 Route::get('/searchTPL/{id}', 'TPLController@search');
 Route::delete('/deleteTPL/{id}', 'TPLController@delete');
+Route::get('/deletedTPL', 'TPLController@deletedItem');
 
 //UkuranHewan
 Route::get('/showUkuranHewan', 'UkuranHewanController@index');
@@ -121,6 +126,7 @@ Route::post('/createPemesananPembayaran', 'PemesananPembayaranController@create'
 Route::put('/updatePemesananPembayaran/{id}', 'PemesananPembayaranController@update');
 Route::get('/searchPemesananPembayaran/{id}', 'PemesananPembayaranController@search');
 Route::delete('/deletePemesananPembayaran/{id}', 'PemesananPembayaranController@delete');
+Route::get('/deletedPemesananPembayaran', 'PemesananPembayaranController@deletedItem');
 
 Route::middleware('jwt.auth')->get('users', function(Request $request) {
     return auth()->user();

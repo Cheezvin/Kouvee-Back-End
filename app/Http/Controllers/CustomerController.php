@@ -15,11 +15,11 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        return Customer::where('logAksi', '!=', "Deleted")->get();
+        return Customer::where('logAksi', '!=', "Dihapus")->get();
     }
 
     public function deletedItem() {
-        return Customer::where('logAksi', '=', "Deleted")->get();
+        return Customer::where('logAksi', '=', "Dihapus")->get();
     }
 
 

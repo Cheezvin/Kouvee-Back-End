@@ -16,7 +16,11 @@ class TPPController extends Controller
      */
     public function index()
     {
-        return TPP::all();
+        return TPP::where('logAksi', '!=', "Dihapus")->get();
+    }
+
+    public function deletedItem() {
+        return TPP::where('logAksi', '=', "Dihapus")->get();
     }
 
     /**

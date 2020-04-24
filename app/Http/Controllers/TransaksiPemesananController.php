@@ -15,7 +15,11 @@ class TransaksiPemesananController extends Controller
      */
     public function index()
     {
-        return TransaksiPemesanan::all();
+        return TransaksiPemesanan::where('logAksi', '!=', "Dihapus")->get();
+    }
+
+    public function deletedItem() {
+        return TransaksiPemesanan::where('logAksi', '=', "Dihapus")->get();
     }
 
     /**

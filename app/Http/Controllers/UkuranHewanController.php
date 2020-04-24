@@ -15,7 +15,11 @@ class UkuranHewanController extends Controller
      */
     public function index()
     {
-        return UkuranHewan::where('logAksi', '!=', "Deleted")->get();
+        return UkuranHewan::where('logAksi', '!=', "Dihapus")->get();
+    }
+
+    public function deletedItem() {
+        return UkuranHewan::where('logAksi', '=', "Dihapus")->get();
     }
 
 
@@ -67,13 +71,5 @@ class UkuranHewanController extends Controller
         $UH = UkuranHewan::find($id);
         $UH->delete();
         return "The data was deleted";
-    }
-
-    public function deletedItem() {
-        return $hewan = UkuranHewan::where('logAksi', '=', "Deleted")->get();
-    }
-
-    public function notDeletedItem() {
-        return $hewan = UkuranHewan::where('logAksi', '!=', "Deleted")->get();
     }
 }

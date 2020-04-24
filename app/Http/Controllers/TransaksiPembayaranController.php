@@ -18,7 +18,11 @@ class TransaksiPembayaranController extends Controller
      */
     public function index()
     {
-        return TransaksiPembayaran::all();
+        return TransaksiPembayaran::where('logAksi', '!=', "Dihapus")->get();
+    }
+
+    public function deletedItem() {
+        return TransaksiPembayaran::where('logAksi', '=', "Dihapus")->get();
     }
 
     /**

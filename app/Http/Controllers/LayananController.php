@@ -15,11 +15,11 @@ class LayananController extends Controller
      */
     public function index()
     {
-        return Layanan::where('logAksi', '!=', "Deleted")->get();
+        return Layanan::where('logAksi', '!=', "Dihapus")->get();
     }
 
     public function deletedItem() {
-        return Layanan::where('logAksi', '=', "Deleted")->get();
+        return Layanan::where('logAksi', '=', "Dihapus")->get();
     }
 
 

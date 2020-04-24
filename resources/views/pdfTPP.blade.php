@@ -37,7 +37,7 @@ img{
           <tr>
             <td align="left">Customer : {{$pembayaran->nama_customer}}</td>
             <td></td>
-            <td align="right">CS : {{$data->logAktor}}</td>
+            <td align="right">CS : {{$data[0]->logAktor}}</td>
           </tr>
           <tr>
             <td align="left">Telepon : {{$pembayaran->telp_customer}}</td>

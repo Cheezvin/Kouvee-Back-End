@@ -45,7 +45,7 @@ img{
             <td align="right">Kasir : {{$pembayaran->logAktor}}</td>
           </tr>
         </table>
-        <div style="border-top: 1px solid black; border-bottom: 1px solid black; margin-top: 5%;">
+        <div style="border-top: 1px solid black; border-bottom: 1px solid black; margin-top: 2%;">
           <h2 align="center">Produk</h2>
         </div>
         <table class="tabel"  style="width:100%; margin-top: 5%;">
@@ -66,9 +66,9 @@ img{
           </tr>
           @endforeach
         </table>
-        <p align="right">Subtotal : {{$pembayaran->total_harga}}</p>
-        <p align="right">Diskon</p>
-        <h3 align="right">Total</h3>
+        <p align="right">Subtotal : {{$pembayaran->total_harga = $pembayaran->total_harga+$pembayaran->diskon }}</p>
+        <p align="right">Diskon : {{$pembayaran->diskon}}</p>
+        <h3 align="right">Total : $pembayaran->total_harga}}</h3>
       </div>
     </div>
   </body>

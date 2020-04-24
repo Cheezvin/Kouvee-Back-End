@@ -84,7 +84,7 @@ class TransaksiPembayaranController extends Controller
         $no = 0;
         $pembayaran = TransaksiPembayaran::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
         $pdf = PDF::loadView('pdfTPP', compact('data','no','pembayaran'));
-        return $pdf->download("invoice.pdf");
+        return $pdf->download($id_transaksi+".pdf");
     }
 
     /**

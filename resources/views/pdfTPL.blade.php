@@ -7,73 +7,68 @@
   border-collapse: collapse;
   text-align: center;
   vertical-align: middle;
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 img{
   width: 100%;
-  height: 30%;
 }
 .solid {
   border-style: solid;
-  width: 50%;
-  height: 100%;
-  margin-left: 20%;
-  padding-top: 2%;
-  padding-bottom: 2%;
-  padding-left: 5%;
-  padding-right: 5%;
+  width: 100%;
+  padding-top: 5%;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 .container {
   width: 100%;
-  height: 100%;
 }
 </style>
 </head>
   <body>
     <div class="container">
       <div class="solid">
-        <img src="./gambar.png">
+        <img src="https://firebasestorage.googleapis.com/v0/b/kouvee-17f92.appspot.com/o/produk%2Fgambar.png?alt=media&token=3b7099fb-0fdf-4035-82e6-5d502d0fff30">
         <h2 align="center">Nota Lunas</h2>
-        <p align="right">Tanggal</p>
-        <p align="left">ID Transaksi</p>
+        <p align="right">{{$pembayaran->tanggal}}</p>
+        <p align="left">{{$pembayaran->id_transaksi}}</p>
         
         <table style="width:100%;">
           <tr>
-            <td align="left">Firstname</td>
+            <td align="left">Customer : {{$pembayaran->nama_customer}}</td>
             <td></td>
-            <td align="right">Age</td>
+            <td align="right">CS : {{$data[0]->logAktor}}</td>
           </tr>
           <tr>
-            <td align="left">Firstname</td>
+            <td align="left">Telepon : {{$pembayaran->telp_customer}}</td>
             <td></td>
-            <td align="right">Age</td>
+            <td align="right">Kasir : {{$pembayaran->logAktor}}</td>
           </tr>
         </table>
-        <div style="border-top: 1px solid black; border-bottom: 1px solid black; margin-top: 5%;">
-          <h2 align="center">Produk</h2>
+        <div style="border-top: 1px solid black; border-bottom: 1px solid black; margin-top: 2%;">
+          <h3 align="center">Jasa Layanan</h3>
         </div>
-        <table class="tabel"  style="width:100%; margin-top: 5%;">
+        <table class="tabel"  style="width:100%; margin-top: 2%;">
           <tr>
             <th>No</th>
-            <th>Nama Layanan</th> 
+            <th>Nama Produk</th> 
             <th>Harga</th>
             <th>Jumlah</th>
             <th>Subtotal</th>
           </tr>
-          @foreach($user as $us)
+          @foreach($data as $dt)
           <tr>
-            <td>{{$us->id}}</td>
-            <td>{{$us->nama_layanan}}</td>
-            <td>{{$us->harga}}</td>
+            <td>{{$no = $no +1}}</td>
+            <td>{{$dt->nama_produk}}</td>
+            <td>Rp.{{$dt->harga}}</td>
             <td>1</td>
-            <td>{{$us->subtotal}}</td>
+            <td>Rp.{{$dt->subtotal}}</td>
           </tr>
           @endforeach
         </table>
-        <p align="right">Subtotal</p>
-        <p align="right">Diskon</p>
-        <h3 align="right">Total</h3>
+        <div style="border-top: 1px">
+          <p align="right">Subtotal : Rp.{{$pembayaran->total_harga = $pembayaran->total_harga+$pembayaran->diskon }}</p>
+          <p align="right">Diskon : Rp.{{$pembayaran->diskon}}</p>
+          <h3 align="right">Total : Rp.{{$pembayaran->total_harga = $pembayaran->total_harga-$pembayaran->diskon}}</h3>
+        </div>
       </div>
     </div>
   </body>

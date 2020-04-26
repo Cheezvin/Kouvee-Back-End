@@ -90,13 +90,13 @@ class TransaksiPembayaranController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  $id_transaksi
      */
-    public function downloadPDFTPL($id){
-        $data = TPL::find($id);
+    public function downloadPDFTPL($id_transaksi){
+        $data = TPL::where('id_transaksi', '=', $id_transaksi)->get();
         $no = 0;
-        $pembayaran = TransaksiPembayaran::find($id);
-        $pdf = PDF::loadView('pdfTPL', compact('user','no','pembayaran'));
-        return $pdf->download($id+".pdf");
+        $pembayaran = TransaksiPembayaran::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
+        $pdf = PDF::loadView('pdfTPL', compact('data','no','pembayaran'));
+        return $pdf->download("invoice.pdf");
     }
 }

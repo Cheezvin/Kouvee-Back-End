@@ -58,16 +58,16 @@ img{
           <tr>
             <td>{{$no = $no +1}}</td>
             <td>{{$dt->nama_produk}}</td>
-            <td>{{$dt->harga}}</td>
+            <td>Rp.{{$dt->harga}}</td>
             <td>{{$dt->jumlah}}</td>
-            <td>{{$dt->subtotal}}</td>
+            <td>Rp.{{$dt->subtotal}}</td>
           </tr>
           @endforeach
         </table>
         <div style="border-top: 1px">
-          <p align="right">Subtotal : {{$pembayaran->total_harga = $pembayaran->total_harga+$pembayaran->diskon }}</p>
-          <p align="right">Diskon : {{$pembayaran->diskon}}</p>
-          <h3 align="right">Total : {{$pembayaran->total_harga = $pembayaran->total_harga-$pembayaran->diskon}}</h3>
+          <p align="right">Subtotal : Rp.{{$pembayaran->total_harga = $pembayaran->total_harga+$pembayaran->diskon }}</p>
+          <p align="right">Diskon : Rp.{{$pembayaran->diskon}}</p>
+          <h3 align="right">Total : Rp.{{$pembayaran->total_harga = $pembayaran->total_harga-$pembayaran->diskon}}</h3>
         </div>
       </div>
     </div>

@@ -127,6 +127,13 @@ Route::put('/updateLaporanProduk/{id}', 'LaporanProdukController@update');
 Route::get('/searchLaporanProduk/{id}', 'LaporanProdukController@search');
 Route::get('/searchLaporanProdukTahun/{id}', 'LaporanProdukController@searchTahun');
 
+//LaporanProduk
+Route::get('/showLaporanLayanan', 'LaporanLayananController@index');
+Route::post('/createLaporanLayanan', 'LaporanLayananController@create');
+Route::put('/updateLaporanLayanan/{id}', 'LaporanLayananController@update');
+Route::get('/searchLaporanLayanan/{id}', 'LaporanLayananController@search');
+Route::get('/searchLaporanLayananTahun/{id}', 'LaporanLayananController@searchTahun');
+
 //PemesananPembayaran
 Route::get('/showPemesananPembayaran', 'PemesananPembayaranController@index');
 Route::post('/createPemesananPembayaran', 'PemesananPembayaranController@create');

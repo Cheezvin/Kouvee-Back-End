@@ -125,7 +125,7 @@ Route::get('/showLaporanProduk', 'LaporanProdukController@index');
 Route::post('/createLaporanProduk', 'LaporanProdukController@create');
 Route::put('/updateLaporanProduk/{id}', 'LaporanProdukController@update');
 Route::get('/searchLaporanProduk/{id}', 'LaporanProdukController@search');
-Route::delete('/searchLaporanProdukTahun/{id}', 'LaporanProdukController@searchTahun');
+Route::get('/searchLaporanProdukTahun/{id}', 'LaporanProdukController@searchTahun');
 
 //PemesananPembayaran
 Route::get('/showPemesananPembayaran', 'PemesananPembayaranController@index');

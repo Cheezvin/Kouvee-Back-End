@@ -13,8 +13,9 @@ class SmsController extends Controller
         // return $request;
         Nexmo::message()->send([
             'to' => $request->mobile,
-            'from' => '16105552344',
+            'from' => 'Kouvee Petshop',
             'text' => 'Bisa Bosque'
         ]);
+        return "SMS Telah Dikirim";
     }
 }

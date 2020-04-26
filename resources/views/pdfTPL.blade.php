@@ -57,7 +57,7 @@ img{
           @foreach($data as $dt)
           <tr>
             <td>{{$no = $no +1}}</td>
-            <td>{{$dt->nama_produk}}</td>
+            <td>{{$dt->nama_layanan}}</td>
             <td>Rp.{{$dt->harga}}</td>
             <td>1</td>
             <td>Rp.{{$dt->subtotal}}</td>

@@ -56,15 +56,12 @@ abstract class AbstractRouteCollection implements Countable, IteratorAggregate, 
         // Here we will spin through all verbs except for the current request verb and
         // check to see if any routes respond to them. If they do, we will return a
         // proper error response with the correct headers on the response string.
-        $others = [];
-
-        foreach ($methods as $method) {
-            if (! is_null($this->matchAgainstRoutes($this->get($method), $request, false))) {
-                $others[] = $method;
+        return array_values(array_filter(
+            $methods,
+            function ($method) use ($request) {
+                return ! is_null($this->matchAgainstRoutes($this->get($method), $request, false));
             }
-        }
-
-        return $others;
+        ));
     }
 
     /**
@@ -198,7 +195,14 @@ abstract class AbstractRouteCollection implements Countable, IteratorAggregate, 
      */
     protected function addToSymfonyRoutesCollection(SymfonyRouteCollection $symfonyRoutes, Route $route)
     {
-        if (! $name = $route->getName()) {
+        $name = $route->getName();
+
+        if (Str::endsWith($name, '.') &&
+            ! is_null($symfonyRoutes->get($name))) {
+            $name = null;
+        }
+
+        if (! $name) {
             $route->name($name = $this->generateRouteName());
 
             $this->add($route);
@@ -206,7 +210,7 @@ abstract class AbstractRouteCollection implements Countable, IteratorAggregate, 
             throw new LogicException("Unable to prepare route [{$route->uri}] for serialization. Another route has already been assigned name [{$name}].");
         }
 
-        $symfonyRoutes->add($name, $route->toSymfonyRoute());
+        $symfonyRoutes->add($route->getName(), $route->toSymfonyRoute());
 
         return $symfonyRoutes;
     }

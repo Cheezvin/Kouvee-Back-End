@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-//use Nexmo;
-use \Nexmo;
+use Nexmo\Laravel\Facade\Nexmo;
 
 class SmsController extends Controller
 {

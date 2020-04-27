@@ -16,6 +16,6 @@ class SmsController extends Controller
             'from' => 'Kouvee Petshop',
             'text' => 'Bisa Bosque'
         ]);
-        return "Pesan telah dikirimkan"
+        return "Pesan telah dikirimkan";
     }
 }

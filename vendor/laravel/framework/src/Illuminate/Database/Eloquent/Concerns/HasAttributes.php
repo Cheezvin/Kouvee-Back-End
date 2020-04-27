@@ -4,7 +4,6 @@ namespace Illuminate\Database\Eloquent\Concerns;
 
 use Carbon\CarbonInterface;
 use DateTimeInterface;
-use Illuminate\Contracts\Database\Eloquent\Castable;
 use Illuminate\Contracts\Database\Eloquent\CastsInboundAttributes;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Database\Eloquent\JsonEncodingException;
@@ -560,7 +559,7 @@ trait HasAttributes
             $caster = $this->resolveCasterClass($key);
 
             return $this->classCastCache[$key] = $caster instanceof CastsInboundAttributes
-                ? ($this->attributes[$key] ?? null)
+                ? $this->attributes[$key]
                 : $caster->get($this, $key, $this->attributes[$key] ?? null, $this->attributes);
         }
     }
@@ -1062,26 +1061,13 @@ trait HasAttributes
      */
     protected function resolveCasterClass($key)
     {
-        $castType = $this->getCasts()[$key];
-
-        $arguments = [];
-
-        if (is_string($castType) && strpos($castType, ':') !== false) {
-            $segments = explode(':', $castType, 2);
-
-            $castType = $segments[0];
-            $arguments = explode(',', $segments[1]);
+        if (strpos($castType = $this->getCasts()[$key], ':') === false) {
+            return new $castType;
         }
 
-        if (is_subclass_of($castType, Castable::class)) {
-            $castType = $castType::castUsing();
-        }
+        $segments = explode(':', $castType, 2);
 
-        if (is_object($castType)) {
-            return $castType;
-        }
-
-        return new $castType(...$arguments);
+        return new $segments[0](...explode(',', $segments[1]));
     }
 
     /**
@@ -1407,7 +1393,7 @@ trait HasAttributes
         }
 
         // If the attribute exists within the cast array, we will convert it to
-        // an appropriate native PHP type dependent upon the associated value
+        // an appropriate native PHP type dependant upon the associated value
         // given with the key in the pair. Dayle made this comment line up.
         if ($this->hasCast($key)) {
             return $this->castAttribute($key, $value);

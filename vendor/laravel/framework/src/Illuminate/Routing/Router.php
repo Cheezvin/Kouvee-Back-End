@@ -395,12 +395,11 @@ class Router implements BindingRegistrar, RegistrarContract
      * Merge the given array with the last group stack.
      *
      * @param  array  $new
-     * @param  bool  $prependExistingPrefix
      * @return array
      */
-    public function mergeWithLastGroup($new, $prependExistingPrefix = true)
+    public function mergeWithLastGroup($new)
     {
-        return RouteGroup::merge($new, end($this->groupStack), $prependExistingPrefix);
+        return RouteGroup::merge($new, end($this->groupStack));
     }
 
     /**
@@ -483,7 +482,7 @@ class Router implements BindingRegistrar, RegistrarContract
     /**
      * Determine if the action is routing to a controller.
      *
-     * @param  mixed  $action
+     * @param  array  $action
      * @return bool
      */
     protected function actionReferencesController($action)
@@ -544,7 +543,7 @@ class Router implements BindingRegistrar, RegistrarContract
      * @param  mixed  $action
      * @return \Illuminate\Routing\Route
      */
-    public function newRoute($methods, $uri, $action)
+    protected function newRoute($methods, $uri, $action)
     {
         return (new Route($methods, $uri, $action))
                     ->setRouter($this)
@@ -585,10 +584,7 @@ class Router implements BindingRegistrar, RegistrarContract
      */
     protected function mergeGroupAttributesIntoRoute($route)
     {
-        $route->setAction($this->mergeWithLastGroup(
-            $route->getAction(),
-            $prependExistingPrefix = false
-        ));
+        $route->setAction($this->mergeWithLastGroup($route->getAction()));
     }
 
     /**
@@ -695,15 +691,9 @@ class Router implements BindingRegistrar, RegistrarContract
      */
     public function gatherRouteMiddleware(Route $route)
     {
-        $excluded = collect($route->excludedMiddleware())->map(function ($name) {
-            return (array) MiddlewareNameResolver::resolve($name, $this->middleware, $this->middlewareGroups);
-        })->flatten()->values()->all();
-
         $middleware = collect($route->gatherMiddleware())->map(function ($name) {
             return (array) MiddlewareNameResolver::resolve($name, $this->middleware, $this->middlewareGroups);
-        })->flatten()->reject(function ($name) use ($route, $excluded) {
-            return in_array($name, $excluded, true);
-        })->values();
+        })->flatten();
 
         return $this->sortMiddleware($middleware);
     }

@@ -17,8 +17,6 @@ namespace Illuminate\Support\Facades;
  * @method static mixed sear(string $key, \Closure $callback)
  * @method static mixed rememberForever(string $key, \Closure $callback)
  * @method static bool forget(string $key)
- * @method static \Illuminate\Contracts\Cache\Lock lock(string $name, int $seconds = 0, mixed $owner = null)
- * @method static \Illuminate\Contracts\Cache\Lock restoreLock(string $name, string $owner)
  * @method static \Illuminate\Contracts\Cache\Store getStore()
  *
  * @see \Illuminate\Cache\CacheManager

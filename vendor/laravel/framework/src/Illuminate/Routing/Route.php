@@ -146,13 +146,13 @@ class Route
     {
         $this->uri = $uri;
         $this->methods = (array) $methods;
-        $this->action = Arr::except($this->parseAction($action), ['prefix']);
+        $this->action = $this->parseAction($action);
 
         if (in_array('GET', $this->methods) && ! in_array('HEAD', $this->methods)) {
             $this->methods[] = 'HEAD';
         }
 
-        $this->prefix(is_array($action) ? Arr::get($action, 'prefix') : '');
+        $this->prefix($this->action['prefix'] ?? '');
     }
 
     /**
@@ -480,14 +480,12 @@ class Route
     /**
      * Get the binding field for the given parameter.
      *
-     * @param  string|int  $parameter
+     * @param  string  $parameter
      * @return string|null
      */
     public function bindingFieldFor($parameter)
     {
-        $fields = is_int($parameter) ? array_values($this->bindingFields) : $this->bindingFields;
-
-        return $fields[$parameter] ?? null;
+        return $this->bindingFields[$parameter] ?? null;
     }
 
     /**
@@ -711,24 +709,9 @@ class Route
      */
     public function prefix($prefix)
     {
-        $this->updatePrefixOnAction($prefix);
-
         $uri = rtrim($prefix, '/').'/'.ltrim($this->uri, '/');
 
         return $this->setUri($uri !== '/' ? trim($uri, '/') : $uri);
-    }
-
-    /**
-     * Update the "prefix" attribute on the action array.
-     *
-     * @param  string  $prefix
-     * @return void
-     */
-    protected function updatePrefixOnAction($prefix)
-    {
-        if (! empty($newPrefix = trim(rtrim($prefix, '/').'/'.ltrim($this->action['prefix'] ?? '', '/'), '/'))) {
-            $this->action['prefix'] = $newPrefix;
-        }
     }
 
     /**
@@ -945,31 +928,6 @@ class Route
         return $this->controllerDispatcher()->getMiddleware(
             $this->getController(), $this->getControllerMethod()
         );
-    }
-
-    /**
-     * Specify middleware that should be removed from the given route.
-     *
-     * @param  array|string  $middleware
-     * @return $this|array
-     */
-    public function withoutMiddleware($middleware)
-    {
-        $this->action['excluded_middleware'] = array_merge(
-            (array) ($this->action['excluded_middleware'] ?? []), Arr::wrap($middleware)
-        );
-
-        return $this;
-    }
-
-    /**
-     * Get the middleware should be removed from the route.
-     *
-     * @return array
-     */
-    public function excludedMiddleware()
-    {
-        return (array) ($this->action['excluded_middleware'] ?? []);
     }
 
     /**

@@ -15,14 +15,6 @@ use Symfony\Component\HttpFoundation\Exception\ConflictingHeadersException;
 use Symfony\Component\HttpFoundation\Exception\SuspiciousOperationException;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
-// Help opcache.preload discover always-needed symbols
-class_exists(AcceptHeader::class);
-class_exists(FileBag::class);
-class_exists(HeaderBag::class);
-class_exists(HeaderUtils::class);
-class_exists(ParameterBag::class);
-class_exists(ServerBag::class);
-
 /**
  * Request represents an HTTP request.
  *
@@ -1561,9 +1553,7 @@ class Request
      * Gets the preferred format for the response by inspecting, in the following order:
      *   * the request format set using setRequestFormat
      *   * the values of the Accept HTTP header
-     *
-     * Note that if you use this method, you should send the "Vary: Accept" header
-     * in the response to prevent any issues with intermediary HTTP caches.
+     *   * the content type of the body of the request.
      */
     public function getPreferredFormat(?string $default = 'html'): ?string
     {

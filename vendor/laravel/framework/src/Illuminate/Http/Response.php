@@ -18,10 +18,10 @@ class Response extends SymfonyResponse
     }
 
     /**
-     * Create a new HTTP response.
+     * Create a new HTTP reponse.
      *
      * @param  mixed  $content
-     * @param  int  $status
+     * @param  int   $status
      * @param  array  $headers
      * @return void
      *

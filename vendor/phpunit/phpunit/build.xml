@@ -47,6 +47,7 @@
             <arg value="--no-interaction"/>
             <arg value="--no-progress"/>
             <arg value="--no-ansi"/>
+            <arg value="--no-suggest"/>
         </exec>
 
         <move file="${basedir}/build/tmp/composer.json" tofile="${basedir}/composer.json"/>
@@ -422,7 +423,6 @@
 
         <exec executable="${basedir}/tools/composer">
             <arg value="self-update"/>
-            <arg value="--1"/>
         </exec>
     </target>
 

@@ -225,7 +225,7 @@ class Builder
     public function select($columns = ['*'])
     {
         $this->columns = [];
-        $this->bindings['select'] = [];
+
         $columns = is_array($columns) ? $columns : func_get_args();
 
         foreach ($columns as $as => $column) {
@@ -1819,7 +1819,7 @@ class Builder
     /**
      * Add an "order by" clause to the query.
      *
-     * @param  \Closure|\Illuminate\Database\Query\Builder|\Illuminate\Database\Query\Expression|string  $column
+     * @param  \Closure|\Illuminate\Database\Query\Builder|string  $column
      * @param  string  $direction
      * @return $this
      *
@@ -2015,25 +2015,6 @@ class Builder
 
         return $this->orderBy($column, 'asc')
                     ->limit($perPage);
-    }
-
-    /**
-     * Remove all existing orders and optionally add a new order.
-     *
-     * @return $this
-     */
-    public function reorder($column = null, $direction = 'asc')
-    {
-        $this->orders = null;
-        $this->unionOrders = null;
-        $this->bindings['order'] = [];
-        $this->bindings['unionOrder'] = [];
-
-        if ($column) {
-            return $this->orderBy($column, $direction);
-        }
-
-        return $this;
     }
 
     /**
@@ -2360,9 +2341,9 @@ class Builder
             return $column;
         }
 
-        $separator = strpos(strtolower($column), ' as ') !== false ? ' as ' : '\.';
+        $seperator = strpos(strtolower($column), ' as ') !== false ? ' as ' : '\.';
 
-        return last(preg_split('~'.$separator.'~i', $column));
+        return last(preg_split('~'.$seperator.'~i', $column));
     }
 
     /**

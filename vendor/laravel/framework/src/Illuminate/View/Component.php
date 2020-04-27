@@ -33,13 +33,6 @@ abstract class Component
     protected $except = [];
 
     /**
-     * The component alias name.
-     *
-     * @var string
-     */
-    public $componentName;
-
-    /**
      * The component attributes.
      *
      * @var \Illuminate\View\ComponentAttributeBag
@@ -68,9 +61,9 @@ abstract class Component
 
         $factory = Container::getInstance()->make('view');
 
-        return $factory->exists($view)
-                    ? $view
-                    : $this->createBladeViewFromString($factory, $view);
+        return $factory->exists($this->render())
+                    ? $this->render()
+                    : $this->createBladeViewFromString($factory, $this->render());
     }
 
     /**
@@ -213,19 +206,6 @@ abstract class Component
             'view',
             'withAttributes',
         ], $this->except);
-    }
-
-    /**
-     * Set the component alias name.
-     *
-     * @param  string  $name
-     * @return $this
-     */
-    public function withName($name)
-    {
-        $this->componentName = $name;
-
-        return $this;
     }
 
     /**

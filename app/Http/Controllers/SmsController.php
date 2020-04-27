@@ -11,10 +11,11 @@ class SmsController extends Controller
     public function sendSms(Request $request)
     {
        
-        return Nexmo::message()->send([
+        Nexmo::message()->send([
             'to' => $request->mobile,
             'from' => 'Kouvee Petshop',
             'text' => 'Bisa Bosque'
         ]);
+        return "Pesan telah dikirimkan"
     }
 }

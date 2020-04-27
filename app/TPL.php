@@ -16,6 +16,7 @@ class TPL extends Model
                             'jenisHewan',
                             'ukuranHewan',
                             'logAktor',
+                            'asd',
                             'logAksi',
                             'logWaktu'];
     public $timestamps = false;                       

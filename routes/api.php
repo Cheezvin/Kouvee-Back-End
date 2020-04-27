@@ -142,7 +142,7 @@ Route::get('/searchPemesananPembayaran/{id}', 'PemesananPembayaranController@sea
 Route::delete('/deletePemesananPembayaran/{id}', 'PemesananPembayaranController@delete');
 Route::get('/deletedPemesananPembayaran', 'PemesananPembayaranController@deletedItem');
 
-Route::get('/sms', 'SmsController@sendSms');
+Route::post('/sms', 'SmsController@sendSms');
 
 Route::middleware('jwt.auth')->get('users', function(Request $request) {
     return auth()->user();

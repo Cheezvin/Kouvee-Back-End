@@ -12,7 +12,7 @@ img{
   width: 100%;
 }
 .pagar{
-  border-style: dotted;
+  border-style: dashed;
   padding-top: 2%;
   padding-left: 2%;
   padding-right: 2%;
@@ -35,8 +35,8 @@ img{
       <div class="solid">
         <img src="https://firebasestorage.googleapis.com/v0/b/kouvee-17f92.appspot.com/o/produk%2Fgambar.png?alt=media&token=3b7099fb-0fdf-4035-82e6-5d502d0fff30">
         <h2 align="center">Surat Pemesanan</h2>
-        <h4 align="right">No. {{$pemesanan->id_transaksi}}</h4>
-        <h4 align="right">{{$pemesanan->tanggal}}</h4>
+        <h4 align="right">No: {{$pemesanan->id_transaksi}}</h4>
+        <h4 align="right">Tanggal: {{date("Y-m-d")}}</h4>
         
         <table class="pagar">
           <tr>
@@ -70,7 +70,7 @@ img{
           @endforeach
         </table>
         <div style="margin-top: 5%">
-          <p align="right">Dicetak pada {{$pemesanan->tanggal}}</p>
+          <p align="right">Dicetak pada {{date("Y-m-d")}}</p>
         </div>
       </div>
     </div>

@@ -52,8 +52,8 @@ img{
             <td align="left">{{$pemesanan->telp_supp}}</td>
           </tr>
         </table>
-        <table class="tabel"  style="width:100%; margin-top: 5%;">
-          <p>Mohon untuk disediakan produk-produk berikut ini :</p>
+        <p style="margin-top: 7%;">Mohon untuk disediakan produk-produk berikut ini :</p>
+        <table class="tabel"  style="width:100%; margin-top: 2%;">
           <tr>
             <th>No</th>
             <th>Nama Produk</th> 

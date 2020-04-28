@@ -141,6 +141,7 @@ Route::put('/updatePemesananPembayaran/{id}', 'PemesananPembayaranController@upd
 Route::get('/searchPemesananPembayaran/{id}', 'PemesananPembayaranController@search');
 Route::delete('/deletePemesananPembayaran/{id}', 'PemesananPembayaranController@delete');
 Route::get('/deletedPemesananPembayaran', 'PemesananPembayaranController@deletedItem');
+Route::get('/downloadPDFPemesanan/{id}', 'PemesananPembayaranController@downloadPDFPemesanan');
 
 Route::post('/sms', 'SmsController@sendSms');
 

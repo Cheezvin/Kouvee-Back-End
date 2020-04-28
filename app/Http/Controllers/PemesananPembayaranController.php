@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\PemesananPembayaran;
+use App\TransaksiPemesanan;
+use \PDF;
 
 class PemesananPembayaranController extends Controller
 {
@@ -70,5 +72,18 @@ class PemesananPembayaranController extends Controller
         $pemesanan = PemesananPembayaran::find($id);
         $pemesanan->delete();
         return "The data was deleted";
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id_transaksi
+     */
+    public function downloadPDFPemesanan($id_transaksi){
+        $data = TransaksiPemesanan::where('id_transaksi', '=', $id_transaksi)->get();
+        $no = 0;
+        $pemesanan = PemesananPembayaran::where('id_transaksi', '=', $id_transaksi)->firstOrFail();
+        $pdf = PDF::loadView('pdfPemesanan', compact('data','no','pemesanan'));
+        return $pdf->download("invoiceTransaksiPemesanan.pdf");
     }
 }

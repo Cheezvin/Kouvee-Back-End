@@ -52,19 +52,18 @@ img{
             <td align="left">{{$pemesanan->telp_supp}}</td>
           </tr>
         </table>
-        <table class="tabel"  style="width:100%; margin-top: 2%;">
-          <p style="margin-top: 5%;">Mohon untuk disediakan produk-produk berikut ini :</p>
+        <table class="tabel"  style="width:100%; margin-top: 5%;">
+          <p>Mohon untuk disediakan produk-produk berikut ini :</p>
           <tr>
             <th>No</th>
             <th>Nama Produk</th> 
-            <th>Harga</th>
+            <th>Satuan</th>
             <th>Jumlah</th>
-            <th>Subtotal</th>
           </tr>
           @foreach($data as $dt)
           <tr>
             <td>{{$no = $no +1}}</td>
-            <td>{{$dt->nama_produk}}</td>
+            <td>{{$dt->namaProduk}}</td>
             <td>{{$dt->satuan}}</td>
             <td>{{$dt->jumlah}}</td>
           </tr>

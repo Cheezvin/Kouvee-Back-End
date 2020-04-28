@@ -43,13 +43,13 @@ img{
             <td align="left">Kepada Yth:</td>
           </tr>
           <tr>
-            <td align="left">{{pemesanan->nama_supp}}</td>
+            <td align="left">{{$pemesanan->nama_supp}}</td>
           </tr>
           <tr>
-            <td align="left">{{pemesanan->kota_supp}}</td>
+            <td align="left">{{$pemesanan->kota_supp}}</td>
           </tr>
           <tr>
-            <td align="left">{{pemesanan->telp_supp}}</td>
+            <td align="left">{{$pemesanan->telp_supp}}</td>
           </tr>
         </table>
         <table class="tabel"  style="width:100%; margin-top: 2%;">
@@ -65,13 +65,13 @@ img{
           <tr>
             <td>{{$no = $no +1}}</td>
             <td>{{$dt->nama_produk}}</td>
-            <td>Rp.{{$dt->satuan}}</td>
+            <td>{{$dt->satuan}}</td>
             <td>{{$dt->jumlah}}</td>
           </tr>
           @endforeach
         </table>
         <div style="margin-top: 5%">
-          <p align="right">Dicetak pada Rp.{{$pemesanan->tanggal}}</p>
+          <p align="right">Dicetak pada {{$pemesanan->tanggal}}</p>
         </div>
       </div>
     </div>

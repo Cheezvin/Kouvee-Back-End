@@ -53,6 +53,17 @@ class LaporanLayananController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $tahun
+     * @return \Illuminate\Http\Response
+     */
+    public function searchBulan($bulan)
+    {
+        return LaporanLayanan::where('bulan', '=', $bulan)->get();
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

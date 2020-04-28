@@ -41,6 +41,17 @@ class LaporanProdukController extends Controller
         return LaporanProduk::find($id);
     }
 
+     /**
+     * Display the specified resource.
+     *
+     * @param  int  $tahun
+     * @return \Illuminate\Http\Response
+     */
+    public function searchBulan($bulan)
+    {
+        return LaporanProduk::where('bulan', '=', $bulan)->get();
+    }
+
     /**
      * Display the specified resource.
      *

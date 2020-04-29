@@ -73,7 +73,7 @@ class LaporanProdukController extends Controller
     {
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
         $data = [];
-        return LaporanProduk::where('tahun', '=', $tahun)->orWhere('jumlah_terjual', '=', LaporanProduk::where('bulan', '=', $bulan[3])->max('jumlah_terjual'))->firstOrFail()
+        return LaporanProduk::where('tahun', '=', $tahun)->orWhere('jumlah_terjual', '=', LaporanProduk::where('bulan', '=', $bulan[3])->max('jumlah_terjual'))->firstOrFail();
     }
 
     /**

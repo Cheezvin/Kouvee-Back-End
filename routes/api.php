@@ -135,6 +135,7 @@ Route::put('/updateLaporanLayanan/{id}', 'LaporanLayananController@update');
 Route::get('/searchLaporanLayanan/{id}', 'LaporanLayananController@search');
 Route::get('/searchLaporanLayananTahun/{id}', 'LaporanLayananController@searchTahun');
 Route::get('/searchLaporanLayananBulan/{id}', 'LaporanLayananController@searchBulan');
+Route::get('/LaporanLayananLaris/{id}', 'LaporanLayananController@Laris');
 
 //PemesananPembayaran
 Route::get('/showPemesananPembayaran', 'PemesananPembayaranController@index');

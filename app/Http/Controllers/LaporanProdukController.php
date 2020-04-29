@@ -72,7 +72,7 @@ class LaporanProdukController extends Controller
     public function Laris($tahun)
     {
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        $data = [];
+        $data = ["Aselole"];
         for ($x = 0; $x < 12; $x++) {
             array_push($data, LaporanProduk::where('tahun', '=', $tahun, 'bulan', '=', $bulan[$x])->max('jumlah_terjual'));
         }

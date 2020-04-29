@@ -107,7 +107,7 @@ class LaporanLayananController extends Controller
         $total = 0;
         $pdf = PDF::loadView('pdfPendapatanTahunan', compact('data','no','total','tahun'));
         $pdf->download("invoiceLaporanPendapatanTahunan.pdf");*/
-        return $data;
+        return json_encode($data);
     }
 
 

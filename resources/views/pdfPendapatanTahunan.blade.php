@@ -49,9 +49,9 @@ img{
           <tr>
             <td>{{$no = $no +1}}</td>
             <td>{{$dt->bulan}}</td>
-            <td>{{$dt->total1}}</td>
-            <td>{{$dt->total2}}</td>
-            <td>{{$total = $dt->total1 + $dt->total2}}</td>
+            <td>Rp .{{$dt->total1}}</td>
+            <td>Rp .{{$dt->total2}}</td>
+            <td>Rp.{{$total = $dt->total1 + $dt->total2}}</td>
           </tr>
           @endforeach         
         </table>

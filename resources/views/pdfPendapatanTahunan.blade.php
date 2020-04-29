@@ -48,7 +48,7 @@ img{
           @foreach($data as $dt)
           <tr>
             <td>{{$no = $no +1}}</td>
-            <td>{{$no = $no +1}}</td>
+            <td>{{$dt->bulan}}</td>
             <td>{{$no = $no +1}}</td>
             <td>{{$no = $no +1}}</td>
             <td>{{$no = $no +1}}</td>

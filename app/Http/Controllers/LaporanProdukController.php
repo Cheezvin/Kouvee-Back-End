@@ -92,7 +92,8 @@ class LaporanProdukController extends Controller
                 array_push($data,LaporanProduk::where($where)->firstOrFail());
             }
         }
-        return $data;
+        $pdf = PDF::loadView('pdfProdukTerlaris', compact('data','no','total','tahun'));
+        return $pdf->download("invoiceLaporanProdukTerlaris.pdf");
         
     }
 

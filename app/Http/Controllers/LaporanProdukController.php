@@ -93,8 +93,8 @@ class LaporanProdukController extends Controller
      */
     public function totalPenjualan($tahun)
     {
-        
-        return LaporanProduk::where($max)->sum('total_penjualan');
+       
+        return LaporanProduk::sum('total_penjualan');
         
     }
 

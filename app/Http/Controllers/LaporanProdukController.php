@@ -72,12 +72,10 @@ class LaporanProdukController extends Controller
     public function Laris($tahun)
     {
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        $data = [];
+        $data = ["Aselole"];
         for ($x = 0; $x < 12; $x++) {
-            $temp = LaporanProduk::where('bulan', '=', $bulan[$x])->max('jumlah_terjual');
-            if($temp != null) {
-                array_push($data, LaporanProduk::where('tahun', '=', $tahun)->orWhere('jumlah_terjual', '=', $temp )->firstOrFail());
-            }
+            $were=['bulan' => $bulan[$x],'jumlah_terjual' => LaporanProduk::where('tahun', '=', $tahun)->orWhere('bulan', '=', $bulan[$x])->max('jumlah_terjual')];
+            array_push($data, LaporanProduk::where('tahun', '=', $tahun)->orWhere($were)->firstOrFail());
         }
         return $data;
     }

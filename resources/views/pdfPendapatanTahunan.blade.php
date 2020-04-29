@@ -48,7 +48,7 @@ img{
           @foreach($data as $i => $item)
           <tr>
             <td>{{$no = $no +1}}</td>
-            <td>{{$dt[i]->bulan}}</td>
+            <td>{{$dt[$i]->bulan}}</td>
             <td>{{$dt->total1}}</td>
             <td>{{$dt->total2}}</td>
             <td>{{$total = $dt->total1 + $dt2->tota2}}</td>

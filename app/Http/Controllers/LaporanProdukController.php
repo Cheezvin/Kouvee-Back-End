@@ -93,6 +93,7 @@ class LaporanProdukController extends Controller
             }
         }
         $no = 0;
+        $total = 0;
         $pdf = PDF::loadView('pdfProdukTerlaris', compact('data','no','total','tahun'));
         return $pdf->download("invoiceLaporanProdukTerlaris.pdf");
         

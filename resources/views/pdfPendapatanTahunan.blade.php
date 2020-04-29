@@ -45,13 +45,13 @@ img{
             <th>Produk</th> 
             <th>Total</th>
           </tr>
-          @foreach($data as $dt)
+          @foreach($data as $key=>$value)
           <tr>
             <td>{{$no = $no +1}}</td>
-            <td></td>
-            <td>{{$dt->total1}}</td>
-            <td>{{$dt->total2}}</td>
-            <td>{{$total = $dt->total1 + $dt->total2}}</td>
+            <td>{{$dt[$key]->bulan}}</td>
+            <td>{{$dt[$key]->total1}}</td>
+            <td>{{$dt[$key]->total2}}</td>
+            <td>{{$total = $dt[$key]->total1 + $dt[$key]->total2}}</td>
           </tr>
           @endforeach         
         </table>

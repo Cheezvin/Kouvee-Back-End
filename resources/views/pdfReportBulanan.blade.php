@@ -2,7 +2,7 @@
 <html>
 <head>
 <style>
-.tabel, .table td, .tabel th {
+.tabel, .tabel td, .tabel th {
   border: 1px solid black;
   border-collapse: collapse;
   text-align: center;
@@ -56,14 +56,14 @@ img{
             <td>{{$dt->nama_produk}}</td>
             <td>Rp.{{$dt->total_penjualan}}</td>
           </tr>
-          <div style="display: none">{{$total = $total2 + $dt->total_penjualan}}</div>
+          <div style="display: none">{{$total = $total + $dt->total_penjualan}}</div>
           @endforeach         
         </table>
-        <h3>Total Rp.{{$total}}</h3>
+        <h3 align="right">Total Rp.{{$total}}</h3>
         <table class="tebal"  style="width:100%; margin-top: 2%;">
           <tr>
             <th>No</th>
-            <th>Nama Produk</th> 
+            <th>Nama Jasa Layanan</th> 
             <th>Harga</th>
           </tr>
           @foreach($data2 as $dt2)
@@ -80,7 +80,7 @@ img{
           <div style="display: none">{{$total2 = $total2 + $dt2->total_penjualan}}</div>
           @endforeach         
         </table>
-        <h3>Total Rp.{{$total2}}</h3>
+        <h3 align="right">Total Rp.{{$total2}}</h3>
         <div style="margin-top: 5%">
           <p align="right">Dicetak pada {{date("Y-m-d")}}</p>
         </div>

@@ -102,7 +102,7 @@ class LaporanProdukController extends Controller
                 array_push($data,LaporanProduk::where($max)->sum('total_penjualan'));
             }
         }
-        return $data;
+        return "APA SIH ANJENG";
         
     }
 

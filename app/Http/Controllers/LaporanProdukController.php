@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\LaporanProduk;
+use App\LaporanLayanan;
 
 class LaporanProdukController extends Controller
 {
@@ -51,7 +52,14 @@ class LaporanProdukController extends Controller
     {
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
         $where = ['bulan' => $bulan[date('n')-1], 'tahun' => date("Y")];
-        return LaporanProduk::where($where)->get();
+        $data = LaporanProduk::where($where)->get();
+        $no = 0;
+        $total = 0;
+        $no2 = 0;
+        $total2 = 0;
+        $data2 = LaporanLayanan::where($where)->get();
+        $pdf = PDF::loadView('pdfReportBulanan', compact('data','no','no2','data2','total','total2'));
+        return $pdf->download("invoiceLaporanPendapatanBulanan.pdf");
     }
 
     /**

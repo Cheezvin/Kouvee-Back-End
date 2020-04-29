@@ -53,8 +53,10 @@ img{
             <td>Rp .{{$dt->total2}}</td>
             <td>Rp.{{$total = $dt->total1 + $dt->total2}}</td>
           </tr>
+          <div style="display: none;">{{$totalKes = $totalKes + $total}}</div>
           @endforeach         
         </table>
+        <h3 align="right">Total : Rp.{{$totalKes}}</h3> 
         <div style="margin-top: 5%">
           <p align="right">Dicetak pada {{date("Y-m-d")}}</p>
         </div>

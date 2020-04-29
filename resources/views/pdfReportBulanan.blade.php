@@ -72,11 +72,6 @@ img{
             <td>{{$dt2->nama_layanan}}</td>
             <td>Rp.{{$dt2->total_penjualan}}</td>
           </tr>
-          <tr>
-            <td>{{$no2 = $no2 +1}}</td>
-            <td>{{$dt2->nama_layanan}}</td>
-            <td>Rp.{{$dt2->total_penjualan}}</td>
-          </tr>  
           <div style="display: none">{{$total2 = $total2 + $dt2->total_penjualan}}</div>
           @endforeach         
         </table>

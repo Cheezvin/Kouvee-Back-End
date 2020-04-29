@@ -91,7 +91,7 @@ class LaporanProdukController extends Controller
      * @param  int  $tahun
      * @return \Illuminate\Http\Response
      */
-    public function Total($tahun)
+    public function totalPenjualan($tahun)
     {
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
         $data = ["asu"];

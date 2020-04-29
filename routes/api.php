@@ -128,7 +128,7 @@ Route::get('/searchLaporanProduk/{id}', 'LaporanProdukController@search');
 Route::get('/searchLaporanProdukTahun/{id}', 'LaporanProdukController@searchTahun');
 Route::get('/searchLaporanProdukBulan/{id}', 'LaporanProdukController@searchBulan');
 Route::get('/laporanProdukLaris/{id}', 'LaporanProdukController@Laris');
-Route::get('/totalPenjualanProduk/{id}', 'LaporanProdukController@Total');
+Route::get('/totalPenjualanProduk/{id}', 'LaporanProdukController@totalPenjualan');
 
 //LaporanLayanan
 Route::get('/showLaporanLayanan', 'LaporanLayananController@index');

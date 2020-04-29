@@ -99,19 +99,13 @@ class LaporanLayananController extends Controller
         $data = [];
         for ($x = 0; $x < 12; $x++) {
             $max = ['tahun' => $tahun,'bulan' => $bulan[$x]];
-            $temp = LaporanProduk::where($max)->sum('total_penjualan');
-            array_push($data,['bulan' => $bulan[$x], 'total' => $temp]);
-        }
-        $data2 = [];
-        for ($j = 0; $j < 12; $j++) {
-            $max2 = ['tahun' => $tahun,'bulan' => $bulan[$j]];
             $temp2 = LaporanLayanan::where($max2)->sum('total_penjualan');
-            array_push($data2,['bulan' => $bulan[$j], 'total' => $temp2]);
-            
+            $temp = LaporanProduk::where($max)->sum('total_penjualan');
+            array_push($data,['bulan' => $bulan[$x], 'total1' => $temp, 'total2' => $temp2]);
         }
         $no = 0;
         $total = 0;
-        $pdf = PDF::loadView('pdfPendapatanTahunan', compact('data','data2','no','total','tahun'));
+        $pdf = PDF::loadView('pdfPendapatanTahunan', compact('data','no','total','tahun'));
         return $pdf->download("invoiceLaporanPendapatanTahunan.pdf");
         
     }

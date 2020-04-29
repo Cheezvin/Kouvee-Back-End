@@ -57,7 +57,7 @@ img{
             <td>Rp.{{$dt->total_penjualan}}</td>
           </tr>
         </table>
-        <h3 align="right">Total Rp.{{$total2 = $total2 + $dt2->total_penjualan}}</h3>
+        <h3 align="right">Total Rp.{{$total = $total + $dt->total_penjualan}}</h3>
         @endforeach
         <table class="tebal"  style="width:100%; margin-top: 2%;">
           <tr>

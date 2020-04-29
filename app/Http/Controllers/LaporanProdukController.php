@@ -81,7 +81,7 @@ class LaporanProdukController extends Controller
                 array_push($data,LaporanProduk::where($where)->get());
             }
         }
-        return $data
+        return $data;
         
     }
 

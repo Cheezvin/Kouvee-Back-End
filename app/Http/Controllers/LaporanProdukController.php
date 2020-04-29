@@ -77,7 +77,9 @@ class LaporanProdukController extends Controller
             $were=['bulan' => $bulan[$x],'jumlah_terjual' => LaporanProduk::where('tahun', '=', $tahun)->orWhere('bulan', '=', $bulan[$x])->max('jumlah_terjual')];
             array_push($data, LaporanProduk::where('tahun', '=', $tahun)->orWhere($were)->firstOrFail());
         }
-        return $data;
+        $were=['bulan' => $bulan[3],'jumlah_terjual' => LaporanProduk::where('tahun', '=', $tahun)->orWhere('bulan', '=', $bulan[3])->max('jumlah_terjual')];
+        return LaporanProduk::where('tahun', '=', $tahun)->orWhere($were)->get();
+        
     }
 
     /**

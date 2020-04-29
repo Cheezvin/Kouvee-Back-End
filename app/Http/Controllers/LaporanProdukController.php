@@ -94,10 +94,10 @@ class LaporanProdukController extends Controller
     public function totalPenjualan($tahun)
     {
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        $data = ["asu"];
+        $data = [];
         for ($x = 0; $x < 12; $x++) {
             $max = ['tahun' => $tahun,'bulan' => $bulan[$x]];
-            $temp = LaporanProduk::where($max)->get();
+            $temp = LaporanProduk::where($max)->firstOrFail();
             if($temp != null) {
                 array_push($data, LaporanProduk::where($max)->sum('total_penjualan'));
             }

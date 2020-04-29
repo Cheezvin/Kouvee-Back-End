@@ -96,12 +96,12 @@ class LaporanLayananController extends Controller
     public function totalPenjualan($tahun)
     {
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        $data = [];
+        $data[] = null;
         for ($x = 0; $x < 12; $x++) {
             $max = ['tahun' => $tahun,'bulan' => $bulan[$x]];
             $temp2 = LaporanLayanan::where($max)->sum('total_penjualan');
             $temp = LaporanProduk::where($max)->sum('total_penjualan');
-            array_push($data,['bulan' -> $bulan[$x], 'total1' -> $temp, 'total2' -> $temp2]);
+            array_push($data,(object)['bulan'=> $bulan[$x], 'total1'=> $temp, 'total2'=> $temp2]);
         }
         /*$no = 0;
         $total = 0;

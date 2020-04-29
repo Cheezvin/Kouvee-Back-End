@@ -74,7 +74,7 @@ class LaporanProdukController extends Controller
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
         $data = ["Aselole"];
         for ($x = 0; $x < 12; $x++) {
-            array_push($data, LaporanProduk::where('tahun', '=', $tahun, 'bulan', '=', $bulan[$x])->max('jumlah_terjual'));
+            array_push($data, LaporanProduk::where('tahun', '=', $tahun, 'and','bulan', '=', $bulan[$x])->max('jumlah_terjual'));
         }
         return $data;
     }

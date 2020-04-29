@@ -99,7 +99,7 @@ class LaporanProdukController extends Controller
             $max = ['tahun' => $tahun,'bulan' => $bulan[$x]];
             $temp = LaporanProduk::where($max)->sum('total_penjualan');
             if($temp != 0) {
-                array_push($data,$bulan[$x],$temp);
+                array_push($data,['bulan' => $bulan[$x], 'total' => $temp]);
             }
         }
         return $data;

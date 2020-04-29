@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\LaporanProduk;
 use App\LaporanLayanan;
+use \PDF;
 
 class LaporanProdukController extends Controller
 {

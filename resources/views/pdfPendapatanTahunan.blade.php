@@ -51,7 +51,7 @@ img{
             <td>{{$dt->bulan}}</td>
             <td>{{$dt2->total}}</td>
             <td>{{$dt->total}}</td>
-            <td>{{$total = $dt->total + dt2->total}}</td>
+            <td>{{$total = $dt->total + $dt2->total}}</td>
           </tr>
           @endforeach         
         </table>

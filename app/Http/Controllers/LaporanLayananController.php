@@ -53,17 +53,6 @@ class LaporanLayananController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $tahun
-     * @return \Illuminate\Http\Response
-     */
-    public function searchBulan($bulan)
-    {
-        return LaporanLayanan::where('bulan', '=', $bulan)->get();
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
@@ -75,6 +64,25 @@ class LaporanLayananController extends Controller
         $JH = LaporanLayanan::find($id);
         $JH->update($request->all());
         return $JH;
+    }
+
+    public function Laris($tahun)
+    {
+        $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        $data = [];
+        for ($x = 0; $x < 12; $x++) {
+            $max = ['tahun' => $tahun,'bulan' => $bulan[$x]];
+            $temp = LaporanLayanan::where($max)->max('jumlah_terjual');
+            if($temp != null) {
+                $where=['tahun' => $tahun, 'bulan' => $bulan[$x],'jumlah_terjual' => LaporanLayanan::where($max)->max('jumlah_terjual')];
+                array_push($data,LaporanLayanan::where($where)->firstOrFail());
+            }
+        }
+        $no = 0;
+        $total = 0;
+        $pdf = PDF::loadView('pdfLayananTerlaris', compact('data','no','total','tahun'));
+        return $pdf->download("invoiceLaporanLayananTerlaris.pdf");
+        
     }
 
 

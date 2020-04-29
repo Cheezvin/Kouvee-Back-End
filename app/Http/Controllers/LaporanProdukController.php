@@ -50,7 +50,7 @@ class LaporanProdukController extends Controller
     public function reportPerbulan()
     {
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
-        $where = ['bulan' => $bulan[date('n')], 'tahun' => date("Y")];
+        $where = ['bulan' => $bulan[date('n')-1], 'tahun' => date("Y")];
         return LaporanProduk::where($where)->get();
     }
 

@@ -56,13 +56,10 @@ img{
             <td>{{$dt->nama_produk}}</td>
             <td>Rp.{{$dt->total_penjualan}}</td>
           </tr>
-          <tr style="border: none;">
-            <td></td>
-            <td>Total :</td>
-            <td><h3>Rp.{{$total = $total + $dt->total_penjualan}}<h3></td>
-          </tr>
-          @endforeach
-        </table> 
+          <div style="display: none">{{$total = $total2 + $dt->total_penjualan}}</div>
+          @endforeach         
+        </table>
+        <h3>Total Rp.{{$total}}</h3>
         <table class="tebal"  style="width:100%; margin-top: 2%;">
           <tr>
             <th>No</th>
@@ -75,13 +72,15 @@ img{
             <td>{{$dt2->nama_layanan}}</td>
             <td>Rp.{{$dt2->total_penjualan}}</td>
           </tr>
-          <tr style="border: none;">
-            <td></td>
-            <td>Total :</td>
-            <td><h3>Rp.{{$total2 = $total2 + $dt2->total_penjualan}}<h3></td>
-          </tr>
+          <tr>
+            <td>{{$no2 = $no2 +1}}</td>
+            <td>{{$dt2->nama_layanan}}</td>
+            <td>Rp.{{$dt2->total_penjualan}}</td>
+          </tr>  
+          <div style="display: none">{{$total2 = $total2 + $dt2->total_penjualan}}</div>
           @endforeach         
         </table>
+        <h3>Total Rp.{{$total2}}</h3>
         <div style="margin-top: 5%">
           <p align="right">Dicetak pada {{date("Y-m-d")}}</p>
         </div>

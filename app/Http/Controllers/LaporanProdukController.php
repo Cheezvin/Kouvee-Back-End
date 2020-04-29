@@ -47,9 +47,11 @@ class LaporanProdukController extends Controller
      * @param  int  $tahun
      * @return \Illuminate\Http\Response
      */
-    public function searchBulan($bulan)
+    public function reportPerbulan()
     {
-        return LaporanProduk::where('bulan', '=', $bulan)->get();
+        $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        $where = ['bulan' => $bulan[date.('m')], 'tahun' => date.("Y")];
+        return LaporanProduk::where($where)->get();
     }
 
     /**

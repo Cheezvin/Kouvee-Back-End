@@ -86,6 +86,27 @@ class LaporanProdukController extends Controller
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int  $tahun
+     * @return \Illuminate\Http\Response
+     */
+    public function Total($tahun)
+    {
+        $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+        $data = [];
+        for ($x = 0; $x < 12; $x++) {
+            $max = ['tahun' => $tahun,'bulan' => $bulan[$x]];
+            $temp = LaporanProduk::where($max)->firstOrFail();
+            if($temp != null) {
+                array_push($data,LaporanProduk::where($max)->sum('total_penjualan'));
+            }
+        }
+        return $data;
+        
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id

@@ -97,13 +97,12 @@ class LaporanProdukController extends Controller
         $data = [];
         for ($x = 0; $x < 12; $x++) {
             $max = ['tahun' => $tahun,'bulan' => $bulan[$x]];
-            $temp = LaporanProduk::where($max)->firstOrFail();
-            if($temp != null) {
+            $temp = LaporanProduk::where($max)->sum('total_penjualan');
+            if($temp != 0) {
                 array_push($data, LaporanProduk::where($max)->sum('total_penjualan'));
             }
         }
         return $data;
-        
     }
 
     /**

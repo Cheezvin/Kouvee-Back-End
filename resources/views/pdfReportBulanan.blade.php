@@ -56,9 +56,9 @@ img{
             <td>{{$dt->nama_produk}}</td>
             <td>Rp.{{$dt->total_penjualan}}</td>
           </tr>
-        </table>
-        <h3 align="right">Total Rp.{{$total = $total + $dt->total_penjualan}}</h3>
-        @endforeach
+          <h3 align="right">Total Rp.{{$total = $total + $dt->total_penjualan}}</h3>
+          @endforeach
+        </table> 
         <table class="tebal"  style="width:100%; margin-top: 2%;">
           <tr>
             <th>No</th>
@@ -70,10 +70,12 @@ img{
             <td>{{$no2 = $no2 +1}}</td>
             <td>{{$dt2->nama_layanan}}</td>
             <td>Rp.{{$dt2->total_penjualan}}</td>
-          </tr>          
+          </tr> 
+          <h3 align="right">Total Rp.{{$total2 = $total2 + $dt2->total_penjualan}}</h3>
+          @endforeach         
         </table>
-        <h3 align="right">Total Rp.{{$total2 = $total2 + $dt2->total_penjualan}}</h3>
-        @endforeach
+        
+        
         <div style="margin-top: 5%">
           <p align="right">Dicetak pada {{date("Y-m-d")}}</p>
         </div>

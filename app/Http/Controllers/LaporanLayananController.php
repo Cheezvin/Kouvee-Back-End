@@ -82,7 +82,6 @@ class LaporanLayananController extends Controller
         }
         $no = 0;
         $total = 0;
-        $data = json_encode($data);
         $pdf = PDF::loadView('pdfLayananTerlaris', compact('data','no','total','tahun'));
         return $pdf->download("invoiceLaporanLayananTerlaris.pdf");
         
@@ -104,11 +103,11 @@ class LaporanLayananController extends Controller
             $temp = LaporanProduk::where($max)->sum('total_penjualan');
             array_push($data,['bulan' => $bulan[$x], 'total1' => $temp, 'total2' => $temp2]);
         }
-        /*$no = 0;
+        $no = 0;
         $total = 0;
+        $data = json_encode($data);
         $pdf = PDF::loadView('pdfPendapatanTahunan', compact('data','no','total','tahun'));
-        $pdf->download("invoiceLaporanPendapatanTahunan.pdf");*/
-        return json_encode($data);
+        $pdf->download("invoiceLaporanPendapatanTahunan.pdf");
     }
 
 

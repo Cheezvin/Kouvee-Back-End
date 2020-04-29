@@ -2,13 +2,13 @@
 <html>
 <head>
 <style>
-.tabel, .tabel th {
+.tabel, .table td, .tabel th {
   border: 1px solid black;
   border-collapse: collapse;
   text-align: center;
   vertical-align: middle;
 }
-.tebal, .tebal th {
+.tebal, .tebal td, .tebal th {
   border: 1px solid black;
   border-collapse: collapse;
   text-align: center;
@@ -56,7 +56,11 @@ img{
             <td>{{$dt->nama_produk}}</td>
             <td>Rp.{{$dt->total_penjualan}}</td>
           </tr>
-          <h3 align="right">Total Rp.{{$total = $total + $dt->total_penjualan}}</h3>
+          <tr style="border: none;">
+            <td></td>
+            <td>Total :</td>
+            <td><h3>Rp.{{$total = $total + $dt->total_penjualan}}<h3></td>
+          </tr>
           @endforeach
         </table> 
         <table class="tebal"  style="width:100%; margin-top: 2%;">
@@ -70,12 +74,14 @@ img{
             <td>{{$no2 = $no2 +1}}</td>
             <td>{{$dt2->nama_layanan}}</td>
             <td>Rp.{{$dt2->total_penjualan}}</td>
-          </tr> 
-          <h3 align="right">Total Rp.{{$total2 = $total2 + $dt2->total_penjualan}}</h3>
+          </tr>
+          <tr style="border: none;">
+            <td></td>
+            <td>Total :</td>
+            <td><h3>Rp.{{$total2 = $total2 + $dt2->total_penjualan}}<h3></td>
+          </tr>
           @endforeach         
         </table>
-        
-        
         <div style="margin-top: 5%">
           <p align="right">Dicetak pada {{date("Y-m-d")}}</p>
         </div>

@@ -75,7 +75,7 @@ class LaporanProdukController extends Controller
         $data = [];
         for ($x = 0; $x < 12; $x++) {
             $max = ['tahun' => $tahun,'bulan' => $bulan[$x]];
-            $temp = LaporanProduk::where('bulan','=',$bulan[$x] )->get();
+            $temp = LaporanProduk::where($max)->max('jumlah_terjual');
             if($temp != null) {
                 $where=['tahun' => $tahun, 'bulan' => $bulan[$x],'jumlah_terjual' => LaporanProduk::where($max)->max('jumlah_terjual')];
                 array_push($data,LaporanProduk::where($where)->get());

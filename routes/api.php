@@ -139,6 +139,13 @@ Route::get('/searchLaporanLayananTahun/{id}', 'LaporanLayananController@searchTa
 Route::get('/reportLayananLaris/{id}', 'LaporanLayananController@Laris');
 Route::get('/reportPendapatanTahun/{id}', 'LaporanLayananController@totalPenjualan');
 
+//LaporanPemesanan
+Route::get('/showLaporanPemesanan', 'LaporanPemesananController@index');
+Route::post('/createLaporanPemesanan', 'LaporanPemesananController@create');
+Route::put('/updateLaporanPemesanan/{id}', 'LaporanPemesananController@update');
+Route::get('/searchLaporanPemesanan/{id}', 'LaporanPemesananController@search');
+Route::get('/searchLaporanPemesananTahun/{id}', 'LaporanPemesananController@searchTahun');
+
 
 //PemesananPembayaran
 Route::get('/showPemesananPembayaran', 'PemesananPembayaranController@index');

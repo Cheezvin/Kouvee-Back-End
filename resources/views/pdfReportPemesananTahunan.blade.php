@@ -34,23 +34,22 @@ img{
     <div class="container">
       <div class="solid">
         <img src="https://firebasestorage.googleapis.com/v0/b/kouvee-17f92.appspot.com/o/produk%2Fgambar.png?alt=media&token=3b7099fb-0fdf-4035-82e6-5d502d0fff30">
-        <h2 align="center">Laporan Pengadaan Produk Bulanan</h2>
-        <p align="left">Tahun : {{$data[0]->tahun}}</p>
-        <p align="left">Bulan : {{$data[0]->bulan}}</p>
+        <h2 align="center">Laporan Pengadaan Produk Tahunan</h2>
+        <p align="left">Tahun : {{$tahun}}</p>
         
         <table class="tabel"  style="width:100%; margin-top: 2%;">
           <tr>
             <th>No</th>
-            <th>Nama Produk</th> 
-            <th>Total Pemesanan</th>
+            <th>Bulan</th> 
+            <th>Jumlah Pengeluaran</th>
           </tr>
           @foreach($data as $dt)
           <tr>
             <td>{{$no = $no +1}}</td>
-            <td>{{$dt->nama_produk}}</td>
-            <td>Rp .{{$dt->total_pemesanan}}</td>
+            <td>{{$dt->bulan}}</td>
+            <td>Rp .{{$dt->total}}</td>
           </tr>
-          <div style="display: none;">{{$total = $dt->total_pemesanan + $total}}</div>
+          <div style="display: none;">{{$total = $dt->total + $total}}</div>
           @endforeach         
         </table>
         <h3 align="right">Total : Rp.{{$total}}</h3> 

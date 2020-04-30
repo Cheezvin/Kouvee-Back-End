@@ -76,22 +76,19 @@ class LaporanPemesananController extends Controller
      * @param  int  $tahun
      * @return \Illuminate\Http\Response
      */
-    public function Laris($tahun)
+    public function Tahunan($tahun)
     {
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
         $data = [];
         for ($x = 0; $x < 12; $x++) {
             $max = ['tahun' => $tahun,'bulan' => $bulan[$x]];
-            $temp = LaporanPemesanan::where($max)->max('jumlah_terjual');
-            if($temp != null) {
-                $where=['tahun' => $tahun, 'bulan' => $bulan[$x],'jumlah_terjual' => LaporanPemesanan::where($max)->max('jumlah_terjual')];
-                array_push($data,LaporanPemesanan::where($where)->firstOrFail());
-            }
+            $temp = LaporanPemesanan::where($max)->sum('total_pemesanan');
+            array_push($data, (object) ['bulan'=> $bulan[$x], 'total'=> $temp]);
         }
         $no = 0;
         $total = 0;
-        $pdf = PDF::loadView('pdfPemesananTerlaris', compact('data','no','total','tahun'));
-        return $pdf->download("invoiceLaporanPemesananTerlaris.pdf");
+        $pdf = PDF::loadView('pdfReportPemesananTahunan', compact('data','no','total','tahun'));
+        return $pdf->download("invoiceLaporanPendapatanTahunan.pdf");
         
     }
 

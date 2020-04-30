@@ -22,6 +22,16 @@ class ProdukController extends Controller
         return Produk::where('logAksi', '=', "Dihapus")->get();
     }
 
+    public function sortNama()
+    {
+        return Produk::where('logAksi', '!=', "Dihapus")->orderBy('nama','asc')->get();
+    }
+
+    public function sortHarga()
+    {
+        return Produk::where('logAksi', '!=', "Dihapus")->orderBy('harga','asc')->get();
+    }
+
     /**
      * Store a newly created resource in storage.
      *

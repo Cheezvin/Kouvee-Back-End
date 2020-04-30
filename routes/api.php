@@ -21,6 +21,8 @@ Route::put('/updateProduk/{id}', 'ProdukController@update');
 Route::get('/searchProduk/{id}', 'ProdukController@search');
 Route::delete('/deleteProduk/{id}', 'ProdukController@delete');
 Route::get('/deletedProduk', 'ProdukController@deletedItem');
+Route::get('/ProdukSortNama', 'ProdukController@sortNama');
+Route::get('/ProdukSortHarga', 'ProdukController@sortHarga');
 
 
 //Layanan

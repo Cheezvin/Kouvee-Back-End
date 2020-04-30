@@ -145,7 +145,7 @@ Route::post('/createLaporanPemesanan', 'LaporanPemesananController@create');
 Route::put('/updateLaporanPemesanan/{id}', 'LaporanPemesananController@update');
 Route::get('/searchLaporanPemesanan/{id}', 'LaporanPemesananController@search');
 Route::get('/searchLaporanPemesananTahun/{id}', 'LaporanPemesananController@searchTahun');
-Route::get('/downloadPDFPemesananPerbulan/{id}', 'LaporanPemesananController@reportPerbulan');
+Route::get('/downloadPDFPemesananPerbulan', 'LaporanPemesananController@reportPerbulan');
 
 
 //PemesananPembayaran

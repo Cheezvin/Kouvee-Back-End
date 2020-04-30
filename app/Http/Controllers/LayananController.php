@@ -22,6 +22,16 @@ class LayananController extends Controller
         return Layanan::where('logAksi', '=', "Dihapus")->get();
     }
 
+    public function sortNama()
+    {
+        return Layanan::where('logAksi', '!=', "Dihapus")->orderBy('nama','asc')->get();
+    }
+
+    public function sortHarga()
+    {
+        return Layanan::where('logAksi', '!=', "Dihapus")->orderBy('harga','asc')->get();
+    }
+
 
     /**
      * Store a newly created resource in storage.

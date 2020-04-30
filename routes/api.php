@@ -32,6 +32,8 @@ Route::put('/updateLayanan/{id}', 'LayananController@update');
 Route::get('/searchLayanan/{id}', 'LayananController@search');
 Route::delete('/deleteLayanan/{id}', 'LayananController@delete');
 Route::get('/deletedLayanan', 'LayananController@deletedItem');
+Route::get('/LayananSortNama', 'LayananController@sortNama');
+Route::get('/LayananSortHarga', 'LayananController@sortHarga');
 
 //Supplier
 Route::get('/showSupplier', 'SupplierController@index');

@@ -54,6 +54,7 @@ class LaporanPemesananController extends Controller
         $where = ['bulan' => $bulan[date('n')-1], 'tahun' => date("Y")];
         $data = LaporanPemesanan::where($where)->get();
         $no = 0;
+        $total = 0;
         $pdf = PDF::loadView('pdfReportPemesananBulanan', compact('data','no','total'));
         return $pdf->download("invoiceLaporanPemesananBulanan.pdf");
     }

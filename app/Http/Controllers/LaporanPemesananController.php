@@ -53,13 +53,8 @@ class LaporanPemesananController extends Controller
         $bulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
         $where = ['bulan' => $bulan[date('n')-1], 'tahun' => date("Y")];
         $data = LaporanPemesanan::where($where)->get();
-        $no = 0;
-        $total = 0;
-        $no2 = 0;
-        $total2 = 0;
-        $data2 = LaporanLayanan::where($where)->get();
-        $pdf = PDF::loadView('pdfReportBulanan', compact('data','no','no2','data2','total','total2'));
-        return $pdf->download("invoiceLaporanPendapatanBulanan.pdf");
+        $pdf = PDF::loadView('pdfReportPemesananBulanan', compact('data','no','total'));
+        return $pdf->download("invoiceLaporanPemesananBulanan.pdf");
     }
 
     /**

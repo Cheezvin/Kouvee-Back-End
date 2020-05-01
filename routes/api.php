@@ -22,6 +22,7 @@ Route::get('/searchProduk/{id}', 'ProdukController@search');
 Route::delete('/deleteProduk/{id}', 'ProdukController@delete');
 Route::get('/deletedProduk', 'ProdukController@deletedItem');
 Route::get('/ProdukSortNama', 'ProdukController@sortNama');
+Route::get('/ProdukSortStok', 'ProdukController@sortStok');
 
 //Layanan
 Route::get('/showLayanan', 'LayananController@index');

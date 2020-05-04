@@ -22,9 +22,9 @@ class ProdukController extends Controller
         return Produk::where('logAksi', '=', "Dihapus")->get();
     }
 
-    public function sortNama()
+    public function sortHarga()
     {
-        return Produk::where('logAksi', '!=', "Dihapus")->orderBy('nama','asc')->get();
+        return Produk::where('logAksi', '!=', "Dihapus")->orderBy('harga','asc')->get();
     }
 
     public function sortStok()

@@ -97,7 +97,10 @@ class PegawaiController extends Controller
             'alamat' => $request->get('alamat'),
             'tglLahir' => $request->get('tglLahir'),
             'noTelp' => $request->get('noTelp'),
-            'role' => $request->get('role')
+            'role' => $request->get('role'),
+            'logAktor' => $request->get('logAktor'),
+            'logAksi' => $request->get('logAksi'),
+            'logWaktu' => $request->get('logWaktu')
         ]);
         $user = Pegawai::first();
         $token = JWTAuth::fromUser($user);
